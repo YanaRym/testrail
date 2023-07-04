@@ -2,6 +2,7 @@ package ui.tests;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import driver.DriverSingleton;
@@ -20,5 +21,4 @@ public class BaseTest {
     public void stopBrowser() {
         DriverSingleton.getInstance().closeDriver();
     }
-
 }
