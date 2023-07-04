@@ -8,16 +8,15 @@ import static ui.constatns.PageUrls.TESTRAIL_LOGIN_PAGE;
 
 public class LoginPageService {
 
-    public DashboardPage loginWithKeepMeLogged(User user) {
+    public void loginWithKeepMeLogged(User user) {
         LoginPage loginPage = new LoginPage();
         loginPage.openLoginPage(TESTRAIL_LOGIN_PAGE)
                 .fillInEmailField(user.getEmail())
                 .fillInPasswordField(user.getPassword())
                 .clickLoginButton();
-        return new DashboardPage();
     }
 
-    public DashboardPage loginWithoutKeepMeLogged(User user) {
+    public void loginWithoutKeepMeLogged(User user) {
         LoginPage loginPage = new LoginPage();
         loginPage.openLoginPage(TESTRAIL_LOGIN_PAGE);
         if (!loginPage.isKeepMeLoggedInChecked()) {
@@ -26,7 +25,6 @@ public class LoginPageService {
         loginPage.fillInEmailField(user.getEmail())
                 .fillInPasswordField(user.getPassword())
                 .clickLoginButton();
-        return new DashboardPage();
     }
 
     public boolean isLoginComplete() {

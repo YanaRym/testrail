@@ -14,9 +14,6 @@ public class DashboardPage extends BasePage {
     @FindBy (xpath = "//a[@id='navigation-empty-addexampleproject']")
     private  WebElement addExampleProjectButton;
 
-    @FindBy (xpath = "//span[contains(text(), 'Add Example Project')]")
-    private WebElement exampleProjectNotificationWindow;
-
     @FindBy (xpath = "//input[@id='addProjectName']")
     private WebElement exampleProjectNameInputField;
 
@@ -41,9 +38,6 @@ public class DashboardPage extends BasePage {
         waitVisibilityOf(addExampleProjectButton).click();
     }
 
-    public boolean isAddExampleProjectWindowDisplayed() {
-        return waitVisibilityOf(exampleProjectNotificationWindow).isDisplayed();
-    }
 
     public void inputExampleProjectName(String projectName){
         waitVisibilityOf(exampleProjectNameInputField).sendKeys(projectName);
