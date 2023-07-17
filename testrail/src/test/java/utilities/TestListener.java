@@ -2,6 +2,11 @@ package utilities;
 
 import io.qameta.allure.Attachment;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.OutputType;
@@ -9,7 +14,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-import driver.DriverSingleton;
+import ui.driver.DriverSingleton;
 
 public class TestListener implements ITestListener {
 
@@ -34,7 +39,7 @@ public class TestListener implements ITestListener {
                 "======================================== FAILED TEST %s Duration: %ss ========================================",
                 iTestResult.getName(),
                 getExecutionTime(iTestResult)));
-        takeScreenshot();
+        takeScreenshot(iTestResult); //УБРАТЬ RESULT
     }
 
     @Override
@@ -64,7 +69,18 @@ public class TestListener implements ITestListener {
     }
 
     @Attachment(value = "Last screen state", type = "image/png")
-    private byte[] takeScreenshot() {
-        return ((TakesScreenshot) DriverSingleton.getInstance().getDriver()).getScreenshotAs(OutputType.BYTES);
+    private byte[] takeScreenshot(ITestResult result) {
+        byte[] screenshot = ((TakesScreenshot) DriverSingleton.getInstance().getDriver()).getScreenshotAs(OutputType.BYTES);
+        String testName = result.getMethod().getMethodName();
+        String dateTime = DateTimeFormatter.ofPattern("dd MMM yyyy, hh.mm a")
+                .format(LocalDateTime.now());
+        try {
+            Files.write(Paths.get("src/test/resources/screenshots/screenshot_" + testName + "_"
+                                                                                    + dateTime
+                                                                                    + ".png"), screenshot);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return screenshot;
     }
 }

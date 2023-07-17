@@ -1,49 +1,66 @@
 package ui.pages;
 
+import io.qameta.allure.Step;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import ui.service.AddExampleProjectFieldsPageService;
+import ui.service.AddProjectFieldsPageService;
 
 public class DashboardPage extends BasePage {
 
-    @FindBy (xpath = "//span[@class=\"navigation-username\"]")
+    private String projectLink = "//div[@id='content_container']//a[contains(text(),'%s')]";
+
+    @FindBy(xpath = "//span[@class='navigation-username']")
     private WebElement username;
-
-    @FindBy (xpath = "//a[contains(text(), 'Add Project')]")
+    @FindBy(xpath = "//a[contains(text(), 'Add Project')]")
     private WebElement addProjectButton;
+    @FindBy(xpath = "//a[@id='navigation-empty-addexampleproject']")
+    private WebElement addExampleProjectButton;
+    //    @FindBy(xpath = "//a[contains(text(), 'create new project')]")
+//    private WebElement createNewProjectLink;
+    @FindBy(xpath = "//a[@id='navigation-admin']")
+    private WebElement adminButton;
 
-    @FindBy (xpath = "//a[@id='navigation-empty-addexampleproject']")
-    private  WebElement addExampleProjectButton;
 
-    @FindBy (xpath = "//input[@id='addProjectName']")
-    private WebElement exampleProjectNameInputField;
-
-    @FindBy (xpath = "//button[contains(text(), 'Add Example Project')]")
-    private WebElement addExampleProjectConfirmationButton;
-
+    @Step("Open Dashboard Page")
     public DashboardPage openDashboardPage(String url) {
         driver.get(url);
         return this;
     }
 
-
+    @Step("Check if username is displayed")
     public boolean isUsernameDisplayed() {
         return waitVisibilityOf(username).isDisplayed();
     }
 
-    public void clickAddProjectButton() {
+    @Step("Click 'Add project' button")
+    public AddProjectFieldsPageService clickAddProjectButton() {
         waitVisibilityOf(addProjectButton).click();
+        return new AddProjectFieldsPageService();
     }
 
-    public void clickAddExampleProjectButton() {
+    @Step("Click 'Add example project' button")
+    public AddExampleProjectFieldsPageService clickAddExampleProjectButton() {
         waitVisibilityOf(addExampleProjectButton).click();
+        return new AddExampleProjectFieldsPageService();
     }
 
-
-    public void inputExampleProjectName(String projectName){
-        waitVisibilityOf(exampleProjectNameInputField).sendKeys(projectName);
+    @Step("Click project link")
+    public ProjectPage clickProjectLink(String projectName) {
+        WebElement link = driver.findElement(By.xpath(String.format(projectLink, projectName)));
+        waitVisibilityOf(link).click();
+        return new ProjectPage();
     }
 
-    public void exampleProjectConfirmationButtonClick(){
-        waitVisibilityOf(addExampleProjectConfirmationButton).click();
+////    public DashboardPage clickCreateProjectsLink() {
+////        waitElementToBeClickable(createNewProjectLink).click();
+////        return this;
+//    }
+
+    @Step("Click 'Administration' button")
+    public AdminPage clickAdminButton() {
+        waitElementToBeClickable(adminButton).click();
+        return new AdminPage();
     }
 }

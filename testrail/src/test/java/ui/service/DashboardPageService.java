@@ -1,30 +1,52 @@
 package ui.service;
 
-import ui.models.Project;
-import ui.pages.AddProjectPage;
+import io.qameta.allure.Step;
 import ui.pages.DashboardPage;
+import ui.pages.ProjectPage;
 
-import static ui.constatns.PageUrls.TESTRAIL_DASHBOARD_PAGE;
+import static ui.constatns.PageUrls.DASHBOARD_PAGE;
 
 public class DashboardPageService {
 
-    public AddProjectPage addProject(Project project) {
+
+    @Step("Open Dashboard page")
+    public DashboardPageService open() {
         DashboardPage dashboardPage = new DashboardPage();
-        dashboardPage.openDashboardPage(TESTRAIL_DASHBOARD_PAGE)
-                .clickAddProjectButton();
-        AddProjectPage addProjectPage = new AddProjectPage();
-        addProjectPage.fillInProjectName(project)
-                .clickAcceptProjectButton();
-        return addProjectPage;
+        dashboardPage.openDashboardPage(DASHBOARD_PAGE);
+        return this;
     }
 
-
-    public void addExampleProject(Project project) {
+    @Step("Add project")
+    public void addProject(String projectName) {
         DashboardPage dashboardPage = new DashboardPage();
-        dashboardPage.openDashboardPage(TESTRAIL_DASHBOARD_PAGE)
-                .clickAddExampleProjectButton();
-        dashboardPage.inputExampleProjectName(project.getProjectName());
-        dashboardPage.exampleProjectConfirmationButtonClick();
+        AddProjectFieldsPageService addProjectPageFieldsService = dashboardPage.clickAddProjectButton();
+        addProjectPageFieldsService.addProject(projectName);
     }
 
+    @Step("Add example project")
+    public void addExampleProject(String projectName) {
+        DashboardPage dashboardPage = new DashboardPage();
+        AddExampleProjectFieldsPageService addExampleProjectFieldsPageService = dashboardPage.clickAddExampleProjectButton();
+        addExampleProjectFieldsPageService.addExampleProject(projectName);
+    }
+
+    @Step("Go to project info directory")
+    public ProjectPageService goToProjectInfo(String projectName) {
+        DashboardPage dashboardPage = new DashboardPage();
+        dashboardPage.clickProjectLink(projectName);
+        return new ProjectPageService();
+    }
+
+//    public DashboardPageService goToProjectSettings() {
+//        DashboardPage dashboardPage = new DashboardPage();
+//        dashboardPage.clickCreateProjectsLink();
+//        return new DashboardPageService();
+//    }
+
+    @Step("Go to Administration page")
+    public AdminPageService goToAdminPage() {
+        DashboardPage dashboardPage = new DashboardPage();
+        dashboardPage.clickAdminButton();
+        return new AdminPageService();
+    }
 }

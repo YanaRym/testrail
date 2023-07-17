@@ -1,10 +1,14 @@
 package ui.tests;
 
+import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import ui.models.User;
 import ui.service.RegistrationPageService;
+
+import static ui.constatns.DefaultRegistrationInfo.*;
+import static ui.constatns.DefaultUserInfo.*;
 
 public class RegistrationPageTest extends BaseTest {
 
@@ -15,19 +19,21 @@ public class RegistrationPageTest extends BaseTest {
         registrationPageService = new RegistrationPageService();
     }
 
-    @Test
+    @Test(description = "This test signs user in")
+    @Description(value = "Create new user account")
     public void createNewAccount() {
         User user = User.builder()
-                .firstName("Thomas")
-                .lastName("Clark")
-                .email("rymsha.yana@mail.ru")
-                .companyName("TY")
-                .phone("3456789")
-                .address("ty4")
-                .country("Italy")
-                .numberOfUsers("1")
+                .firstName(DEFAULT_FIRST_NAME)
+                .lastName(DEFAULT_LAST_NAME)
+                .email(DEFAULT_REGISTRATION_EMAIL)
+                .companyName(DEFAULT_COMPANY_NAME)
+                .phone(DEFAULT_PHONE_NUMBER)
+                .address(DEFAULT_ADDRESS)
+                .country(DEFAULT_COUNTRY)
+                .numberOfUsers(DEFAULT_NUMBER_OF_USERS)
                 .build();
         registrationPageService.createNewAccount(user);
-        Assert.assertTrue(registrationPageService.isAccountCreated());
+        Assert.assertTrue(registrationPageService.isAccountCreated(),
+                "Registration failed.");
     }
 }

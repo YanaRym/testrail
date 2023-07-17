@@ -34,7 +34,7 @@
                 </configuration>
                 <dependencies>
                     <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
-                 <!--   <dependency>
+                 <!-- <dependency>
                         <groupId>org.aspectj</groupId>
                         <artifactId>aspectjweaver</artifactId>
                         <version>1.9.6</version>
@@ -58,11 +58,19 @@
             <scope>test</scope>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+        <!--     <dependency>
+               <groupId>org.seleniumhq.selenium</groupId>
+               <artifactId>selenium-java</artifactId>
+               <version>3.141.59</version>
+           </dependency> -->
+
+           <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>3.141.59</version>
+            <version>4.10.0</version>
         </dependency>
+
         <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
@@ -79,7 +87,7 @@
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
-            <version>1.9.6</version>
+            <version>1.9.19</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>

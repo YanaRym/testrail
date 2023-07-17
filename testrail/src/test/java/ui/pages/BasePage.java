@@ -5,13 +5,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import driver.DriverSingleton;
+import ui.driver.DriverSingleton;
+
+import java.time.Duration;
 
 public abstract class BasePage {
 
     protected WebDriver driver = DriverSingleton.getInstance().getDriver();
 
-    private final static int WAIT_TIMEOUT_SECONDS = 10;
+    protected final static Duration WAIT_TIMEOUT_SECONDS = Duration.ofSeconds(10);
 
     protected BasePage() {
         PageFactory.initElements(driver, this);

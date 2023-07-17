@@ -18,5 +18,5 @@ public class User {
     private String address;
     private String country;
     private String numberOfUsers;
-
 }
+
