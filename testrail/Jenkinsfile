@@ -10,7 +10,7 @@ pipeline {
         cron('0 8 * * *')
     }
     parameters {
-        gitParameter branchFilter: 'origin/(.*)', defaultValue: 'service', name: 'BRANCH', type: 'PT_BRANCH'
+        gitParameter branchFilter: 'origin/(.*)', defaultValue: 'ui_tests_development', name: 'BRANCH', type: 'PT_BRANCH'
         booleanParam(defaultValue: true, description: 'Headless mode', name: 'HEADLESS')
         string(name: 'DEPLOY_ENV', defaultValue: 'staging', description: '')
     }
@@ -19,13 +19,13 @@ pipeline {
       stage('Testing') {
          steps {
             // Get some code from a GitHub repository
-            git branch: "ui_tests_development", url: 'https://github.com/YanaRym/testrail.git'
+            git branch: "${params.BRANCH}", url: 'https://github.com/YanaRym/testrail.git'
 
             // Run Maven on a Unix agent.
             //sh "mvn clean test"
 
             // To run Maven on a Windows agent, use
-            bat "mvn mvn -Dmaven.test.failure.ignore=true -Dbrowser=chrome -Dsurefire.suiteXmlFiles=src/test/resources/ui_smoke.xml clean test"
+            bat "mvn -Dmaven.test.failure.ignore=true -Dbrowser=chrome -Dsurefire.suiteXmlFiles=src/test/resources/ui_smoke.xml clean test"
          }
 
          post {
@@ -44,7 +44,7 @@ pipeline {
                              jdk: '',
                              properties: [],
                              reportBuildPolicy: 'ALWAYS',
-                             results: [[path: 'target/allure-results']]
+                             results: [[path: 'allure-results']]
                      ])
              }
          }
