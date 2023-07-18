@@ -31,9 +31,8 @@ public class AdminPage extends BasePage {
     }
 
     @Step("Click 'Projects' button")
-    public AdminPage clickProjectsButton() {
+    public void clickProjectsButton() {
         waitElementToBeClickable(projectNavigationButton).click();
-        return this;
     }
 
     @Step("Click 'Delete' button")
@@ -46,7 +45,7 @@ public class AdminPage extends BasePage {
     @Step("Tick 'Yes, delete this project' checkbox")
     public AdminPage checkDeleteProjectCheckbox(String projectName) {
         WebElement deleteCheckbox = driver.findElement(By.xpath(String.format(deleteProjectCheckbox, projectName)));
-        waitElementToBeClickable(deleteCheckbox).click();
+        waitVisibilityOf(deleteCheckbox).click();
         return this;
     }
 

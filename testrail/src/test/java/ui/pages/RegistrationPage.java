@@ -114,25 +114,14 @@ public class RegistrationPage extends BasePage {
 
     @Step("Do not accept cookies")
     public RegistrationPage clickNoCookiesButton() {
-        waitVisibilityOf(noCookiesButton).click();
+        WebDriverWait wait = new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS);
+        wait.until(ExpectedConditions.visibilityOf(noCookiesButton)).click();
         return this;
     }
 
     @Step("Click 'Create account'")
     public void clickCreateAccountButton() {
         waitElementToBeClickable(successButton).click();
-    }
-
-    @Step("Close tabs")
-    public RegistrationPage closeTabs() {
-        Object[] handles = driver.getWindowHandles().toArray();
-        String thisTabHandle = driver.getWindowHandle();
-        for (Object tabHandle : handles) {
-            if (!tabHandle.toString().equals(thisTabHandle)) {
-                driver.switchTo().window(tabHandle.toString()).close();
-            }
-        }
-        return this;
     }
 
     @Step("Choose 'New to TestRail' option")

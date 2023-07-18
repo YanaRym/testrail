@@ -16,10 +16,9 @@ public class AdminPageService {
     }
 
     @Step("Go to 'Projects' directory")
-    public AdminPageService goToProjectDirectory() {
+    public void goToProjectDirectory() {
         AdminPage adminPage = new AdminPage();
         adminPage.clickProjectsButton();
-        return this;
     }
 
     @Step("Click 'Delete'")

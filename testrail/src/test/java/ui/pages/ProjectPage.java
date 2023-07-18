@@ -8,14 +8,11 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
 public class ProjectPage extends BasePage {
 
     private static final String PROJECT_NAME_XPATH = "//a[contains(text(), '%s')]";
-    private static final int WAIT_TIMEOUT_SECONDS = 15;
     private static final Duration WAIT_FOR_PROJECT_TIMEOUT = Duration.ofSeconds(60);
-    private String projectLink = "//a[contains(text(), '%s')]";
 
 
     @FindBy(xpath = "//a[contains(text(), 'Edit')]")
@@ -34,7 +31,7 @@ public class ProjectPage extends BasePage {
     private WebElement addTestRunsButton;
     @FindBy(xpath = "//a[@id='sidebar-cases-add']")
     private WebElement addTestCases;
-    @FindBy (xpath = "//a[@id='sidebar-suites-viewall']")
+    @FindBy(xpath = "//a[@id='sidebar-suites-viewall']")
     private WebElement viewAllTestCasesButton;
 
 
@@ -50,14 +47,6 @@ public class ProjectPage extends BasePage {
     public boolean isProjectNameDisplayed(String projectName) {
         WebElement projectTitle = driver.findElement(By.xpath(String.format(PROJECT_NAME_XPATH, projectName)));
         return projectTitle.isDisplayed();
-    }
-
-    @Step("Check if project name isn't displayed")
-    public boolean isProjectNotFound(String projectName) {
-        driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-        int numberOfElements = driver.findElements(By.xpath(String.format(projectLink, projectName))).size();
-        driver.manage().timeouts().implicitlyWait(WAIT_TIMEOUT_SECONDS, TimeUnit.SECONDS);
-        return numberOfElements == 0;
     }
 
     @Step("Click 'Edit' button")
@@ -79,17 +68,19 @@ public class ProjectPage extends BasePage {
 
     @Step("Check if success message is displayed")
     public boolean isSuccessMessageDisplayed() {
-        return waitVisibilityOf(successMessage).isDisplayed();
+        WebDriverWait wait = new WebDriverWait(driver, WAIT_FOR_PROJECT_TIMEOUT);
+        wait.until(ExpectedConditions.visibilityOf(successMessage));
+        return successMessage.isDisplayed();
     }
 
     @Step("Click 'Add milestone' button")
-    public MilestonePage clickAddMilestoneButton(){
+    public MilestonePage clickAddMilestoneButton() {
         waitElementToBeClickable(addMilestoneButton).click();
         return new MilestonePage();
     }
 
     @Step("Click 'View all' test cases button")
-    public TestCasePage clickViewAllButton(){
+    public TestCasePage clickViewAllButton() {
         waitElementToBeClickable(viewAllTestCasesButton).click();
         return new TestCasePage();
     }

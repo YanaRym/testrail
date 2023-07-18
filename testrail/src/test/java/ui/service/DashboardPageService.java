@@ -2,7 +2,6 @@ package ui.service;
 
 import io.qameta.allure.Step;
 import ui.pages.DashboardPage;
-import ui.pages.ProjectPage;
 
 import static ui.constatns.PageUrls.DASHBOARD_PAGE;
 
@@ -23,13 +22,6 @@ public class DashboardPageService {
         addProjectPageFieldsService.addProject(projectName);
     }
 
-    @Step("Add example project")
-    public void addExampleProject(String projectName) {
-        DashboardPage dashboardPage = new DashboardPage();
-        AddExampleProjectFieldsPageService addExampleProjectFieldsPageService = dashboardPage.clickAddExampleProjectButton();
-        addExampleProjectFieldsPageService.addExampleProject(projectName);
-    }
-
     @Step("Go to project info directory")
     public ProjectPageService goToProjectInfo(String projectName) {
         DashboardPage dashboardPage = new DashboardPage();
@@ -37,11 +29,6 @@ public class DashboardPageService {
         return new ProjectPageService();
     }
 
-//    public DashboardPageService goToProjectSettings() {
-//        DashboardPage dashboardPage = new DashboardPage();
-//        dashboardPage.clickCreateProjectsLink();
-//        return new DashboardPageService();
-//    }
 
     @Step("Go to Administration page")
     public AdminPageService goToAdminPage() {

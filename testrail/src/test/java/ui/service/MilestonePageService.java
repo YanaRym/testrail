@@ -7,13 +7,12 @@ import ui.pages.MilestonePage;
 public class MilestonePageService {
 
     @Step("Create milestone")
-    public ProjectPageService fillInMilestoneInfo(Project project) {
+    public void fillInMilestoneInfo(Project project) {
         MilestonePage milestonePage = new MilestonePage();
         milestonePage.fillInMilestoneNameField(project.getMilestoneName())
                 .fillInMilestoneReferenceField(project.getMilestoneReference())
                 .fillInMilestoneDescriptionField(project.getMilestoneDescription())
                 .clickAddMilestoneButton();
-        return new ProjectPageService();
     }
 
 }

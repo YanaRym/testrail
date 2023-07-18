@@ -2,7 +2,7 @@ package ui.constatns;
 
 public class DefaultProjectInfo {
 
-    public static final String DEFAULT_PROJECT_NAME = "New Project";
+    public static final String DEFAULT_NEW_PROJECT_NAME = "New Project";
     public static final String DEFAULT_EXAMPLE_PROJECT_NAME = "Example Project";
     public static final String DEFAULT_MILESTONE_NAME = "Quality assurance testing";
     public static final String DEFAULT_MILESTONE_REFERENCE = "Login to https://qat3.testrail.io";

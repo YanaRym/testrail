@@ -10,8 +10,8 @@ public class RegistrationPageService {
     @Step("Sign in")
     public void createNewAccount(User user) {
         RegistrationPage registrationPage = new RegistrationPage();
-        registrationPage.openRegistrationPage();
-        registrationPage.fillInFirstName(user.getFirstName())
+        registrationPage.openRegistrationPage()
+                .fillInFirstName(user.getFirstName())
                 .fillInLastName(user.getLastName())
                 .fillInEmail(user.getEmail())
                 .fillInPhone(user.getPhone())
@@ -28,11 +28,10 @@ public class RegistrationPageService {
         registrationPage.clickNewToTestRailButton().clickNextButton()
                 .clickSoftwareQAButton().clickNextButton()
                 .clickSeleniumButton().clickDoneButton();
-        // registrationPage.closeTabs();
     }
 
     @Step("Check if account is created")
-    public boolean isAccountCreated() { // ОЖИДАНИЕ ПОСТАВИТЬ
+    public boolean isAccountCreated() {
         DashboardPage dashboardPage = new DashboardPage();
         return dashboardPage.isUsernameDisplayed();
     }

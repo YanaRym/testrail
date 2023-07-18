@@ -19,12 +19,11 @@ public class ProjectPageService {
     }
 
     @Step("Edit project")
-    public ProjectPage editProject() {
+    public void editProject() {
         ProjectPage projectPage = new ProjectPage();
         projectPage.clickEditButton()
                 .checkCompleteCheckbox()
                 .clickSaveButton();
-        return projectPage;
     }
 
     @Step("Check if procedure is successful")
@@ -33,20 +32,15 @@ public class ProjectPageService {
         return projectPage.isSuccessMessageDisplayed();
     }
 
-    @Step("Check if project is deleted")
-    public boolean isProjectDeleted(String projectName) {
-        ProjectPage projectPage = new ProjectPage();
-        return projectPage.isProjectNotFound(projectName);
-    }
-
-    @Step("Click 'Add milestone' button")
-    public MilestonePageService clickAddMilestoneButton(){
+    @Step("Add milestone")
+    public MilestonePageService addMilestone() {
         ProjectPage projectPage = new ProjectPage();
         projectPage.clickAddMilestoneButton();
         return new MilestonePageService();
     }
-    @Step("Click 'View All' button")
-    public TestCasePageService clickViewAllButton(){
+
+    @Step("View All test cases")
+    public TestCasePageService viewAllTestCases() {
         ProjectPage projectPage = new ProjectPage();
         projectPage.clickViewAllButton();
         return new TestCasePageService();

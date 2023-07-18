@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Smoke Test" thread-count="2" parallel="classes">
+<suite name="Smoke Test" thread-count="2" parallel="tests">
     <listeners>
         <listener class-name="utilities.AnnotationTransformer"/>
     </listeners>
     <parameter name="browser" value="chrome"/>
-    <test name="TestRail UI Test">
+    <test name="TestRail UI Registration and Login Testing">
         <classes>
             <class name="ui.tests.RegistrationPageTest"/>
             <class name="ui.tests.LoginPageTest"/>
-            <class name="ui.tests.DashboardPageTest"/>
+        </classes>
+    </test>
+    <test name="TestRail UI Functional Testing">
+        <classes>
+            <class name = "ui.tests.AdminPageTest"/>
             <class name="ui.tests.ProjectPageTest"/>
-            <class name="ui.tests.AdminPageTest"/>
+            <class name="ui.tests.DashboardPageTest"/>
         </classes>
     </test>
 </suite>
