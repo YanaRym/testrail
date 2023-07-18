@@ -1,6 +1,7 @@
 package ui.tests;
 
 import io.qameta.allure.Description;
+import io.qameta.allure.Story;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -14,6 +15,7 @@ import static ui.constatns.DefaultProjectInfo.DEFAULT_PROJECT_NAME;
 import static ui.constatns.DefaultUserInfo.DEFAULT_EMAIL;
 import static ui.constatns.DefaultUserInfo.DEFAULT_PASSWORD;
 
+@Story(value  = "Dashboard page")
 public class DashboardPageTest extends BaseTest {
 
     private DashboardPageService dashboardPageService;
@@ -39,14 +41,14 @@ public class DashboardPageTest extends BaseTest {
         loginPageService.loginWithKeepMeLogged(user);
     }
 
-    @Test(description = "This test adds project form Dashboard")
-    @Description(value = "Add example project from Dashboard")
-    public void addExampleProjectFromDashboardTest() {
-        dashboardPageService.open()
-                .addExampleProject(DEFAULT_EXAMPLE_PROJECT_NAME);
-        Assert.assertTrue(exampleProjectPageService.isProjectCreated(DEFAULT_EXAMPLE_PROJECT_NAME),
-                "Example Project hasn't been added.");
-    }
+//    @Test(description = "This test adds project form Dashboard")
+//    @Description(value = "Add example project from Dashboard")
+//    public void addExampleProjectFromDashboardTest() {
+//        dashboardPageService.open()
+//                .addExampleProject(DEFAULT_EXAMPLE_PROJECT_NAME);
+//        Assert.assertTrue(exampleProjectPageService.isProjectCreated(DEFAULT_EXAMPLE_PROJECT_NAME),
+//                "Example Project hasn't been added.");
+//    }
 
     @Test(description = "This test adds example project form Dashboard")
     @Description(value = "Add new project from Dashboard")

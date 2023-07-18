@@ -1,6 +1,7 @@
 package ui.tests;
 
 import io.qameta.allure.Description;
+import io.qameta.allure.Story;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -11,6 +12,7 @@ import utilities.TestDataGenerator;
 import static ui.constatns.DefaultUserInfo.DEFAULT_EMAIL;
 import static ui.constatns.DefaultUserInfo.DEFAULT_PASSWORD;
 
+@Story(value = "Login page")
 public class LoginPageTest extends BaseTest {
 
     private LoginPageService loginPageService;

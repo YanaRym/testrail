@@ -1,6 +1,7 @@
 package ui.tests;
 
 import io.qameta.allure.Description;
+import io.qameta.allure.Story;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -14,6 +15,7 @@ import static ui.constatns.DefaultProjectInfo.DEFAULT_MILESTONE_DESCRIPTION;
 import static ui.constatns.DefaultUserInfo.DEFAULT_EMAIL;
 import static ui.constatns.DefaultUserInfo.DEFAULT_PASSWORD;
 
+@Story(value = "Project page")
 public class ProjectPageTest extends BaseTest {
 
     private DashboardPageService dashboardPageService;

@@ -1,6 +1,7 @@
 package ui.tests;
 
 import io.qameta.allure.Description;
+import io.qameta.allure.Story;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import ui.models.User;
@@ -15,6 +16,7 @@ import static ui.constatns.DefaultProjectInfo.DEFAULT_PROJECT_NAME;
 import static ui.constatns.DefaultUserInfo.DEFAULT_EMAIL;
 import static ui.constatns.DefaultUserInfo.DEFAULT_PASSWORD;
 
+@Story(value = "Administration page")
 public class AdminPageTest extends BaseTest {
 
     private DashboardPageService dashboardPageService;

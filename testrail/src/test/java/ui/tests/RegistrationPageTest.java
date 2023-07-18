@@ -1,6 +1,7 @@
 package ui.tests;
 
 import io.qameta.allure.Description;
+import io.qameta.allure.Story;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -10,6 +11,7 @@ import ui.service.RegistrationPageService;
 import static ui.constatns.DefaultRegistrationInfo.*;
 import static ui.constatns.DefaultUserInfo.*;
 
+@Story(value = "Registration page")
 public class RegistrationPageTest extends BaseTest {
 
     private RegistrationPageService registrationPageService;

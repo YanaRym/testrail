@@ -5,7 +5,7 @@
         <listener class-name="utilities.AnnotationTransformer"/>
     </listeners>
     <parameter name="browser" value="chrome"/>
-    <test name="TestRail Test">
+    <test name="TestRail UI Test">
         <classes>
             <class name="ui.tests.RegistrationPageTest"/>
             <class name="ui.tests.LoginPageTest"/>
