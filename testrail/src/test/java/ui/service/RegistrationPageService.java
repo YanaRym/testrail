@@ -1,10 +1,12 @@
 package ui.service;
 
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import ui.models.User;
 import ui.pages.DashboardPage;
 import ui.pages.RegistrationPage;
 
+@Log4j2
 public class RegistrationPageService {
 
     @Step("Sign in")
@@ -22,6 +24,7 @@ public class RegistrationPageService {
                 .checkIAgreeCheckbox()
                 .clickNoCookiesButton()
                 .clickCreateAccountButton();
+        log.warn("Redirecting to mail page");
         MailPageService mailLoginPageService = new MailPageService();
         mailLoginPageService.login()
                 .confirmEmail();

@@ -1,6 +1,7 @@
 package ui.pages;
 
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -12,6 +13,7 @@ import java.util.Set;
 
 import static ui.constatns.PageUrls.TESTRAIL_CREATE_ACCOUNT_PAGE;
 
+@Log4j2
 public class RegistrationPage extends BasePage {
 
     private final static Duration WAIT_TIMEOUT_SECONDS = Duration.ofSeconds(120);
@@ -52,42 +54,49 @@ public class RegistrationPage extends BasePage {
 
     @Step("Open registration page")
     public RegistrationPage openRegistrationPage() {
+        log.info("Open registration page");
         driver.get(TESTRAIL_CREATE_ACCOUNT_PAGE);
         return this;
     }
 
     @Step("Fill in first name field")
     public RegistrationPage fillInFirstName(String firstName) {
+        log.info("Fill in first name");
         waitVisibilityOf(firstNameInputField).sendKeys(firstName);
         return this;
     }
 
     @Step("Fill in last name field")
     public RegistrationPage fillInLastName(String lastName) {
+        log.info("Fill in last name");
         waitVisibilityOf(lastNameInputField).sendKeys(lastName);
         return this;
     }
 
     @Step("Fill in email field")
     public RegistrationPage fillInEmail(String email) {
+        log.info("Fill in email");
         waitVisibilityOf(emailInputField).sendKeys(email);
         return this;
     }
 
     @Step("Fill in phone number field")
     public RegistrationPage fillInPhone(String phone) {
+        log.info("Fill in phone number");
         waitVisibilityOf(phoneInputField).sendKeys(phone);
         return this;
     }
 
     @Step("Fill in company name field")
     public RegistrationPage fillInCompanyName(String companyName) {
+        log.info("Fill in company name");
         waitVisibilityOf(companyNameInputField).sendKeys(companyName);
         return this;
     }
 
     @Step("Fill in country field")
     public RegistrationPage fillInCountry(String country) {
+        log.info("Fill in country");
         Select selectCountry = new Select(countryDropdown);
         selectCountry.selectByVisibleText(country);
         return this;
@@ -95,6 +104,7 @@ public class RegistrationPage extends BasePage {
 
     @Step("Choose number of workers")
     public RegistrationPage fillInNumberOfWorkers(String numberOfUsers) {
+        log.info("Fill in number of workers");
         Select selectNumberOfUsers = new Select(numberOfUsersDropdown);
         selectNumberOfUsers.selectByVisibleText(numberOfUsers);
         return this;
@@ -102,18 +112,21 @@ public class RegistrationPage extends BasePage {
 
     @Step("Fill in web address field")
     public RegistrationPage fillInWebAddress(String address) {
+        log.info("Fill in web address");
         waitVisibilityOf(webAddressInputField).sendKeys(address);
         return this;
     }
 
     @Step("Agree to the terms of service")
     public RegistrationPage checkIAgreeCheckbox() {
+        log.info("Agree to the terms of service");
         waitVisibilityOf(iAgreeCheckbox).click();
         return this;
     }
 
     @Step("Do not accept cookies")
     public RegistrationPage clickNoCookiesButton() {
+        log.info("Do not accept cookies");
         WebDriverWait wait = new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS);
         wait.until(ExpectedConditions.visibilityOf(noCookiesButton)).click();
         return this;
@@ -121,11 +134,13 @@ public class RegistrationPage extends BasePage {
 
     @Step("Click 'Create account'")
     public void clickCreateAccountButton() {
+        log.info("Create new account");
         waitElementToBeClickable(successButton).click();
     }
 
     @Step("Choose 'New to TestRail' option")
     public RegistrationPage clickNewToTestRailButton() {
+        log.info("Choose 'New to TestRail'");
         Set handles = driver.getWindowHandles();
         Object[] lastHandle = handles.toArray();
         driver.switchTo().window(lastHandle[lastHandle.length - 1].toString());
@@ -136,24 +151,28 @@ public class RegistrationPage extends BasePage {
 
     @Step("Choose 'Software QA Engineer' option")
     public RegistrationPage clickSoftwareQAButton() {
+        log.info("Choose 'Software QA Engineer'");
         waitElementToBeClickable(softwareQAChoice).click();
         return this;
     }
 
     @Step("Choose 'Selenium' option")
     public RegistrationPage clickSeleniumButton() {
+        log.info("Choose Selenium");
         waitElementToBeClickable(seleniumChoice).click();
         return this;
     }
 
     @Step("Click 'Next' button")
     public RegistrationPage clickNextButton() {
+        log.info("Continue");
         waitElementToBeClickable(nextButton).click();
         return this;
     }
 
     @Step("Click 'Done' button")
     public void clickDoneButton() {
+        log.info("Done");
         waitElementToBeClickable(doneButton).click();
     }
 

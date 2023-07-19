@@ -13,5 +13,9 @@ public class TestDataGenerator {
         return faker.internet().password();
     }
 
+    public static String getRandomFullName() {
+        return faker.name().fullName();
+    }
+
 }
 

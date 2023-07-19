@@ -1,10 +1,12 @@
 package ui.pages;
 
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+@Log4j2
 public class TestCasePage extends BasePage {
 
     private static String OBJECT_XPATH = "//li[contains(text(), '%s')]";
@@ -34,42 +36,49 @@ public class TestCasePage extends BasePage {
 
     @Step("Click 'Add Section' button")
     public TestCasePage clickAddSectionButton() {
+        log.info("Add section");
         waitElementToBeClickable(addSectionButton).click();
         return this;
     }
 
     @Step("Fill in section name field")
     public TestCasePage fillInSectionNameField(String sectionName) {
+        log.info("Fill in section name");
         waitVisibilityOf(sectionNameInputField).sendKeys(sectionName);
         return this;
     }
 
     @Step("Fill in section description field")
     public TestCasePage fillInSectionDescriptionField(String sectionDescription) {
+        log.info("Fill in section description");
         waitVisibilityOf(sectionDescriptionInputField).sendKeys(sectionDescription);
         return this;
     }
 
     @Step("Confirm addition of section")
     public TestCasePage confirmNewSection() {
+        log.info("Confirm section addition");
         waitElementToBeClickable(submitSectionButton).click();
         return this;
     }
 
     @Step("Click 'Add Test Case' button")
     public TestCasePage clickAddTestCaseButton() {
+        log.info("Add test case");
         waitElementToBeClickable(addTestCaseButton).click();
         return this;
     }
 
     @Step("Fill in test case title field")
     public TestCasePage fillInTestCaseTitleField(String testCaseTitle) {
+        log.info("Fill in test case title");
         waitVisibilityOf(testCaseTitleInputField).sendKeys(testCaseTitle);
         return this;
     }
 
     @Step("Choose section")
     public TestCasePage chooseSection(String sectionName) {
+        log.info("Choose section");
         waitElementToBeClickable(sectionList).click();
         waitVisibilityOf(driver.findElement(By.xpath(String.format(OBJECT_XPATH, sectionName)))).click();
         return this;
@@ -77,6 +86,7 @@ public class TestCasePage extends BasePage {
 
     @Step("Choose template")
     public TestCasePage chooseTemplate(String template) {
+        log.info("Choose template");
         waitVisibilityOf(templateList).click();
         waitVisibilityOf(driver.findElement(By.xpath(String.format(OBJECT_XPATH, template)))).click();
         return this;
@@ -84,6 +94,7 @@ public class TestCasePage extends BasePage {
 
     @Step("Choose type")
     public TestCasePage chooseType(String type) {
+        log.info("Choose type");
         waitVisibilityOf(typeList).click();
         waitVisibilityOf(driver.findElement(By.xpath(String.format(OBJECT_XPATH, type)))).click();
         return this;
@@ -91,6 +102,7 @@ public class TestCasePage extends BasePage {
 
     @Step("Choose priority")
     public TestCasePage choosePriority(String priority) {
+        log.info("Choose priority");
         waitVisibilityOf(priorityList).click();
         waitVisibilityOf(driver.findElement(By.xpath(String.format(OBJECT_XPATH, priority)))).click();
         return this;
@@ -98,6 +110,7 @@ public class TestCasePage extends BasePage {
 
     @Step("Click 'Submit Test Case'")
     public void clickSubmitTestCase() {
+        log.info("Confirm creation of a new test case");
         waitVisibilityOf(submitTestCaseButton).click();
     }
 }
