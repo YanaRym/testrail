@@ -18,4 +18,11 @@
             <class name="ui.tests.DashboardPageTest"/>
         </classes>
     </test>
+    <test name="TestRail API Testing">
+        <classes>
+            <class name="api.tests.UserApiTests"/>
+            <class name="api.tests.MilestoneTests"/>
+            <class name="api.tests.ProjectApiTests"/>
+       </classes>
+    </test>
 </suite>
