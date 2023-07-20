@@ -20,11 +20,11 @@ public class TestCasePageService {
     public ProjectPageService addTestCase(Project project) {
         TestCasePage testCasePage = new TestCasePage();
         testCasePage.clickAddTestCaseButton()
-                .fillInTestCaseTitleField(project.getTestCaseTitle())
                 .chooseSection(project.getSectionName())
                 .chooseTemplate(project.getTestCaseTemplate())
                 .chooseType(project.getTestCaseType())
                 .choosePriority(project.getTestCasePriority())
+                .fillInTestCaseTitleField(project.getTestCaseTitle())
                 .clickSubmitTestCase();
         return new ProjectPageService();
     }

@@ -5,12 +5,17 @@ import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 
 @Log4j2
 public class TestCasePage extends BasePage {
 
     private static String OBJECT_XPATH = "//li[contains(text(), '%s')]";
+    private static Duration WAIT_DISAPPEAR_SECONDS = Duration.ofSeconds(20);
 
     @FindBy(xpath = "//a[contains(text(), 'Add Section')]")
     private WebElement addFirstSectionButton;
@@ -40,6 +45,8 @@ public class TestCasePage extends BasePage {
     @Step("Click 'Add Section' button")
     public TestCasePage clickAddSectionButton() {
         log.info("Add section");
+        WebDriverWait wait = new WebDriverWait(driver, WAIT_DISAPPEAR_SECONDS);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='blockUI blockOverlay']")));
         if (!addFirstSectionButton.isDisplayed()) {
             addSectionButton.click();
         } else {
@@ -86,6 +93,8 @@ public class TestCasePage extends BasePage {
     @Step("Choose section")
     public TestCasePage chooseSection(String sectionName) {
         log.info("Choose section");
+        WebDriverWait wait = new WebDriverWait(driver, WAIT_DISAPPEAR_SECONDS);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='blockUI blockOverlay']")));
         waitElementToBeClickable(sectionList).click();
         waitVisibilityOf(driver.findElement(By.xpath(String.format(OBJECT_XPATH, sectionName)))).click();
         return this;

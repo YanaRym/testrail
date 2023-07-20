@@ -53,7 +53,7 @@ public class ProjectPageTest extends BaseTest {
         Assert.assertTrue(projectPageService.isSuccess(), "Creation of milestone failed.");
     }
 
-    @Test(priority = 2, description = "This test creates new test case in a new test section", dependsOnMethods = "createMilestoneTest")
+    @Test(priority = 2, description = "This test creates new test case in a new test section")
     @Description(value = "Create new test case in a new section")
     public void createNewTestCaseTest() {
         Project project = Project.builder()
@@ -72,7 +72,7 @@ public class ProjectPageTest extends BaseTest {
         Assert.assertTrue(projectPageService.isSuccess());
     }
 
-    @Test(priority = 3, description = "This test creates new test run", dependsOnMethods = "createNewTestCaseTest")
+    @Test(priority = 3, description = "This test creates new test run")
     @Description(value = "Create new test run")
     public void createNewTestRun() {
         Project project = Project.builder()
