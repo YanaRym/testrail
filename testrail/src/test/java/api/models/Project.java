@@ -10,7 +10,7 @@ import lombok.Data;
 public class Project {
 
     private String name;
-    @SerializedName("project_id")
+    @SerializedName("id")
     private int projectId;
     private String announcement;
     @SerializedName("show_announcement")

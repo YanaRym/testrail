@@ -45,4 +45,11 @@ public class ProjectPageService {
         projectPage.clickViewAllButton();
         return new TestCasePageService();
     }
+
+    @Step("Add test run")
+    public TestRunPageService clickAddTestRun() {
+        ProjectPage projectPage = new ProjectPage();
+        projectPage.clickAddTestRunButton();
+        return new TestRunPageService();
+    }
 }

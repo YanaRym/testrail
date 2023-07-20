@@ -20,4 +20,9 @@ public class MilestoneAdapter extends BaseAdapter {
     public Response deleteMilestone(int milestoneId) {
         return delete(String.format(DELETE_MILESTONE_API_ENDPOINT, milestoneId));
     }
+
+    public int getMilestoneIdByName(int projectId, String milestoneName) {
+        return get(String.format(GET_MILESTONES_API_ENDPOINT, projectId)).jsonPath().
+                getInt(String.format("milestones.find { it.name == '%s' }.id", milestoneName));
+    }
 }

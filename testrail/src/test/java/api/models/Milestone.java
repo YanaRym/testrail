@@ -11,7 +11,7 @@ public class Milestone {
 
     private String name;
     private String description;
-    @SerializedName("milestone_id")
+    @SerializedName("id")
     private int milestoneId;
     @SerializedName("start_on")
     private int startOn;

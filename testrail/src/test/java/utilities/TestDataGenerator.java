@@ -13,6 +13,10 @@ public class TestDataGenerator {
         return faker.internet().password();
     }
 
+    public static String getRandomAddress() {
+        return faker.bothify("##?#??");
+    }
+
     public static String getRandomFullName() {
         return faker.name().fullName();
     }

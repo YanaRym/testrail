@@ -14,7 +14,6 @@ public class AdminPage extends BasePage {
     private String deleteProjectButtonLink = "//a[contains(text(), '%s')]/../following-sibling::*/a/div[@class='icon-small-delete']";
     private String deleteProjectCheckbox = "//strong[contains(text(), '%s')]/../..//input[@type='checkbox']";
     private String okDeleteButton = "//strong[contains(text(), '%s')]/../../following-sibling::*//a[contains(text(), 'OK')]";
-    private String cancelDeleteButton = "//strong[contains(text(), '%s')]/../../following-sibling::*//a[contains(text(), 'Cancel')]";
 
     @FindBy(xpath = "//a[@id='navigation-sub-projects']")
     private WebElement projectNavigationButton;

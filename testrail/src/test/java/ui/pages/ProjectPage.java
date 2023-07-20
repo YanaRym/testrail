@@ -31,8 +31,6 @@ public class ProjectPage extends BasePage {
     private WebElement addMilestoneButton;
     @FindBy(xpath = "//a[@id='sidebar-runs-add']")
     private WebElement addTestRunsButton;
-    @FindBy(xpath = "//a[@id='sidebar-cases-add']")
-    private WebElement addTestCases;
     @FindBy(xpath = "//a[@id='sidebar-suites-viewall']")
     private WebElement viewAllTestCasesButton;
 
@@ -82,16 +80,21 @@ public class ProjectPage extends BasePage {
     }
 
     @Step("Click 'Add milestone' button")
-    public MilestonePage clickAddMilestoneButton() {
+    public void clickAddMilestoneButton() {
         log.info("Add new milestone");
         waitElementToBeClickable(addMilestoneButton).click();
-        return new MilestonePage();
+
     }
 
     @Step("Click 'View all' test cases button")
-    public TestCasePage clickViewAllButton() {
+    public void clickViewAllButton() {
         log.info("View all test cases");
         waitElementToBeClickable(viewAllTestCasesButton).click();
-        return new TestCasePage();
+    }
+
+    @Step("Click 'Add test run' button")
+    public void clickAddTestRunButton() {
+        log.info("Add new test run");
+        waitElementToBeClickable(addTestRunsButton).click();
     }
 }

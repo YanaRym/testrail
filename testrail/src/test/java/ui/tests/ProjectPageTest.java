@@ -42,7 +42,7 @@ public class ProjectPageTest extends BaseTest {
     @Description(value = "Create milestone")
     public void createMilestoneTest() {
         Project project = Project.builder()
-                .projectName(DEFAULT_NEW_PROJECT_NAME)
+                .projectName(DEFAULT_PROJECT_NAME)
                 .milestoneName(DEFAULT_MILESTONE_NAME)
                 .milestoneReference(DEFAULT_MILESTONE_REFERENCE)
                 .milestoneDescription(DEFAULT_MILESTONE_DESCRIPTION)
@@ -53,11 +53,11 @@ public class ProjectPageTest extends BaseTest {
         Assert.assertTrue(projectPageService.isSuccess(), "Creation of milestone failed.");
     }
 
-    @Test(priority = 2, description = "This test creates new test case in a new test section")
+    @Test(priority = 2, description = "This test creates new test case in a new test section", dependsOnMethods = "createMilestoneTest")
     @Description(value = "Create new test case in a new section")
     public void createNewTestCaseTest() {
         Project project = Project.builder()
-                .projectName(DEFAULT_NEW_PROJECT_NAME)
+                .projectName(DEFAULT_PROJECT_NAME)
                 .sectionName(DEFAULT_TEST_CASE_SECTION_NAME)
                 .sectionDescription(DEFAULT_TEST_CASE_SECTION_DESCRIPTION)
                 .testCaseTitle(DEFAULT_TEST_CASE_TITLE)
@@ -72,10 +72,26 @@ public class ProjectPageTest extends BaseTest {
         Assert.assertTrue(projectPageService.isSuccess());
     }
 
-    @Test(priority = 3, description = "This test completes project")
+    @Test(priority = 3, description = "This test creates new test run", dependsOnMethods = "createNewTestCaseTest")
+    @Description(value = "Create new test run")
+    public void createNewTestRun() {
+        Project project = Project.builder()
+                .projectName(DEFAULT_PROJECT_NAME)
+                .milestoneName(DEFAULT_MILESTONE_NAME)
+                .testRunDescription(DEFAULT_TEST_RUN_DESCRIPTION)
+                .testCaseTitle(DEFAULT_TEST_CASE_TITLE)
+                .build();
+        dashboardPageService.goToProjectInfo(project.getProjectName())
+                .clickAddTestRun()
+                .addTTestRun(project);
+        Assert.assertTrue(projectPageService.isSuccess());
+
+    }
+
+    @Test(priority = 4, description = "This test completes project")
     @Description(value = "Mark project as complete")
     public void completeProjectTest() {
-        dashboardPageService.goToProjectInfo(DEFAULT_NEW_PROJECT_NAME)
+        dashboardPageService.goToProjectInfo(DEFAULT_PROJECT_NAME)
                 .editProject();
         Assert.assertTrue(projectPageService.isSuccess(),
                 "Project completion failed.");

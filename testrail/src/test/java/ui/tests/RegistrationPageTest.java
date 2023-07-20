@@ -7,6 +7,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import ui.models.User;
 import ui.service.RegistrationPageService;
+import utilities.TestDataGenerator;
 
 import static ui.constatns.DefaultRegistrationInfo.*;
 import static ui.constatns.DefaultUserInfo.*;
@@ -30,7 +31,7 @@ public class RegistrationPageTest extends BaseTest {
                 .email(DEFAULT_REGISTRATION_EMAIL)
                 .companyName(DEFAULT_COMPANY_NAME)
                 .phone(DEFAULT_PHONE_NUMBER)
-                .address(DEFAULT_ADDRESS)
+                .address(TestDataGenerator.getRandomAddress())
                 .country(DEFAULT_COUNTRY)
                 .numberOfUsers(DEFAULT_NUMBER_OF_USERS)
                 .build();

@@ -6,16 +6,19 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+
 @Log4j2
 public class TestCasePage extends BasePage {
 
     private static String OBJECT_XPATH = "//li[contains(text(), '%s')]";
 
-    @FindBy(xpath = "//a[@id='addSectionInline']")
+    @FindBy(xpath = "//a[contains(text(), 'Add Section')]")
+    private WebElement addFirstSectionButton;
+    @FindBy(xpath = "//a[@id='addSection']")
     private WebElement addSectionButton;
     @FindBy(xpath = "//a[@id='sidebar-cases-add']")
     private WebElement addTestCaseButton;
-    @FindBy(xpath = "//input[@name='editSectionName']") ////option[contains(text(), 'New')]
+    @FindBy(xpath = "//input[@name='editSectionName']")
     private WebElement sectionNameInputField;
     @FindBy(xpath = "//div[@id='editSectionDescription_display']")
     private WebElement sectionDescriptionInputField;
@@ -37,7 +40,11 @@ public class TestCasePage extends BasePage {
     @Step("Click 'Add Section' button")
     public TestCasePage clickAddSectionButton() {
         log.info("Add section");
-        waitElementToBeClickable(addSectionButton).click();
+        if (!addFirstSectionButton.isDisplayed()) {
+            addSectionButton.click();
+        } else {
+            addFirstSectionButton.click();
+        }
         return this;
     }
 
@@ -65,7 +72,7 @@ public class TestCasePage extends BasePage {
     @Step("Click 'Add Test Case' button")
     public TestCasePage clickAddTestCaseButton() {
         log.info("Add test case");
-        waitElementToBeClickable(addTestCaseButton).click();
+        addTestCaseButton.click();
         return this;
     }
 

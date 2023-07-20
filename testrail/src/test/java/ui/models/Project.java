@@ -17,4 +17,5 @@ public class Project {
     private String testCaseTemplate;
     private String testCaseType;
     private String testCasePriority;
+    private String testRunDescription;
 }
