@@ -24,7 +24,7 @@ public class LoginPageTest extends BaseTest {
 
     @Test(description = "This test logs user in with keeping logged in")
     @Description(value = "Log in user with 'Keep me logged'")
-    public void loginWithKeepMeLoggedTest() {
+    public void checkLoginWithKeepMeLoggedTest() {
         User user = User.builder()
                 .email(DEFAULT_EMAIL)
                 .password(DEFAULT_PASSWORD)
@@ -36,7 +36,7 @@ public class LoginPageTest extends BaseTest {
 
     @Test(description = "This test logs user in without keeping logged in")
     @Description(value = "Log in user without 'Keep me logged'")
-    public void loginWithoutKeepLoggedTest() {
+    public void checkLoginWithoutKeepLoggedTest() {
         User user = User.builder()
                 .email(DEFAULT_EMAIL)
                 .password(DEFAULT_PASSWORD)
@@ -48,7 +48,7 @@ public class LoginPageTest extends BaseTest {
 
     @Test(description = "This test logs user in without email")
     @Description(value = "Log in user without email")
-    public void loginWithNoEmailTest() {
+    public void checkLoginWithNoEmailIsImpossibleTest() {
         User user = User.builder()
                 .email("")
                 .password(DEFAULT_PASSWORD)
@@ -60,7 +60,7 @@ public class LoginPageTest extends BaseTest {
 
     @Test(description = "This test logs user in without password")
     @Description(value = "Log in user without password")
-    public void loginWithNoPasswordTest() {
+    public void checkLoginWithNoPasswordIsImpossibleTest() {
         User user = User.builder()
                 .email(DEFAULT_EMAIL)
                 .password("")
@@ -72,7 +72,7 @@ public class LoginPageTest extends BaseTest {
 
     @Test(description = "This test logs user in with incorrect email")
     @Description(value = "Log in user with wrong email")
-    public void loginWithWrongEmailTest() {
+    public void checkLoginWithWrongEmailIsImpossibleTest() {
         User user = User.builder()
                 .email(TestDataGenerator.getRandomEmail())
                 .password(DEFAULT_PASSWORD)
@@ -84,7 +84,7 @@ public class LoginPageTest extends BaseTest {
 
     @Test(description = "This test logs user in with incorrect password")
     @Description(value = "Log in user with wrong password")
-    public void loginWithWrongPasswordTest() {
+    public void checkLoginWithWrongPasswordIsImpossibleTest() {
         User user = User.builder()
                 .email(DEFAULT_EMAIL)
                 .password(TestDataGenerator.getRandomPassword())
