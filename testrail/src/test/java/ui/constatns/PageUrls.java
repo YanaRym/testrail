@@ -8,4 +8,6 @@ public class PageUrls {
     public static final String DASHBOARD_PAGE = TESTRAIL_HOST.concat("dashboard");
     public static final String ADMIN_PAGE = TESTRAIL_HOST.concat("admin/overview");
 
+    private PageUrls() {
+    }
 }

@@ -52,7 +52,6 @@ public class RegistrationPage extends BasePage {
     @FindBy(xpath = "//button[contains(text(), 'Done')]")
     private WebElement doneButton;
 
-
     @Step("Open registration page")
     public RegistrationPage openRegistrationPage() {
         log.info("Open registration page");
@@ -178,5 +177,4 @@ public class RegistrationPage extends BasePage {
         log.info("Done");
         waitElementToBeClickable(doneButton).click();
     }
-
 }

@@ -23,7 +23,6 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//div[contains (text(), \"incorrect\")]")
     private WebElement wrongCredentialsErrorMessage;
 
-
     @Step("Open login page")
     public LoginPage openLoginPage(String url) {
         log.info("Open login page");
@@ -58,7 +57,7 @@ public class LoginPage extends BasePage {
     }
 
     @Step("Tick 'Keep me logged in' checkbox")
-    public void keepMeLoggedInClick() {
+    public void clickKeepMeLoggedIn() {
         log.info("Click keep me logged");
         waitElementToBeClickable(keepMeLoggedInCheckmark).click();
     }

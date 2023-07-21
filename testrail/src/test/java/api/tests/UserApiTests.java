@@ -24,7 +24,7 @@ public class UserApiTests {
 
     @Test(description = "This test adds new user")
     @Description(value = "Add new user")
-    public void addNewUserTest() {
+    public void checkNewUserCanBeAddedTest() {
         User user = User.builder()
                 .name(TestDataGenerator.getRandomFullName())
                 .email(TestDataGenerator.getRandomEmail())
@@ -36,7 +36,7 @@ public class UserApiTests {
 
     @Test(description = "This test gets all users")
     @Description(value = "Get all users")
-    public void getUsersTest() {
+    public void checkStatusCodeOfGettingUsersTest() {
         int statusCode = userAdapter.getUsers().statusCode();
         Assert.assertEquals(statusCode, HTTP_OK,
                 "Failed to get users.");
@@ -44,10 +44,9 @@ public class UserApiTests {
 
     @Test(description = "This test gets a specific user by email")
     @Description(value = "Get user by email")
-    public void getUserByEmailTest() {
+    public void checkStatusCodeOfGettingUserByEmailTest() {
         int statusCode = userAdapter.getUserByEmail(DEFAULT_USER_EMAIL).statusCode();
         Assert.assertEquals(statusCode, HTTP_OK,
                 "Failed to get user by email.");
     }
-
 }

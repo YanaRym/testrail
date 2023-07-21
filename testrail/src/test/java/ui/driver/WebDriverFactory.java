@@ -7,7 +7,6 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-//import org.openqa.selenium.opera.OperaDriver;
 
 public class WebDriverFactory {
 
@@ -18,21 +17,12 @@ public class WebDriverFactory {
 
     public static WebDriver getWebDriver() {
         WebDriver driver = null;
-        switch (System.getProperty("browser", "chrome")) {
-            case "firefox": {
-                WebDriverManager.firefoxdriver().setup();
-                driver = new FirefoxDriver();
-                break;
-            }
-//            case "opera": {
-//                WebDriverManager.operadriver().setup();
-//                driver = new OperaDriver();
-//                break;
-//            }
-            default: {
-                WebDriverManager.chromedriver().setup();
-                driver = new ChromeDriver();
-            }
+        if (System.getProperty("browser", "chrome").equals("firefox")) {
+            WebDriverManager.firefoxdriver().setup();
+            driver = new FirefoxDriver();
+        } else {
+            WebDriverManager.chromedriver().setup();
+            driver = new ChromeDriver();
         }
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(WAIT_TIMEOUT_SECONDS, TimeUnit.SECONDS);

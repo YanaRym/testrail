@@ -9,10 +9,10 @@ import static ui.constatns.PageUrls.EMAIL_URL;
 
 public class MailPageService {
 
+    private final MailPage mailPage = new MailPage();
 
     @Step("Log in to email")
     public MailPageService login() {
-        MailPage mailPage = new MailPage();
         mailPage.open(EMAIL_URL)
                 .clickLogin()
                 .fillInUsernameField(EMAIL_USERNAME)
@@ -25,7 +25,6 @@ public class MailPageService {
 
     @Step("Confirm email address")
     public void confirmEmail() {
-        MailPage mailPage = new MailPage();
         mailPage.openMessage()
                 .clickConfirm();
     }

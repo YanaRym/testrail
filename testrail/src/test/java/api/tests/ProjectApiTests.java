@@ -24,7 +24,7 @@ public class ProjectApiTests {
 
     @Test(description = "This test gets specific project")
     @Description(value = "Get specific project")
-    public void getProjectTest() {
+    public void checkStatusCodeOfGettingProjectTest() {
         int statusCode = projectAdapter.getSpecificProject(2).statusCode();
         Assert.assertEquals(statusCode, HTTP_OK,
                 "Failed to get the project.");
@@ -32,7 +32,7 @@ public class ProjectApiTests {
 
     @Test(description = "This test gets all projects")
     @Description(value = "Get all projects")
-    public void getAllProjects() {
+    public void checkStatusCodeOfGettingAllProjects() {
         int statusCode = projectAdapter.getAllProjects().statusCode();
         Assert.assertEquals(statusCode, HTTP_OK,
                 "Failed to get projects.");
@@ -40,7 +40,7 @@ public class ProjectApiTests {
 
     @Test(description = "This test adds new project")
     @Description(value = "Add new project")
-    public void addNewProjectTest() {
+    public void checkNewProjectCanBeAddedTest() {
         Project project = Project.builder()
                 .name(DEFAULT_NEW_PROJECT_NAME)
                 .announcement(DEFAULT_PROJECT_ANNOUNCEMENT)
@@ -51,9 +51,9 @@ public class ProjectApiTests {
                 "Failed to add new project.");
     }
 
-    @Test(description = "This test deletes project", dependsOnMethods = "addNewProjectTest")
+    @Test(description = "This test deletes project", dependsOnMethods = "checkNewProjectCanBeAddedTest")
     @Description(value = "Delete project")
-    public void deleteProjectTest() {
+    public void checkProjectCanBeDeletedTest() {
         Project project = Project.builder()
                 .name("Test API project").build();
         int id = projectAdapter.getProjectIdByName(project.getName());

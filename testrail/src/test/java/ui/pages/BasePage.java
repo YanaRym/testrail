@@ -10,10 +10,10 @@ import ui.driver.DriverSingleton;
 import java.time.Duration;
 
 public abstract class BasePage {
+    protected final static Duration WAIT_TIMEOUT_SECONDS = Duration.ofSeconds(10);
 
     protected WebDriver driver = DriverSingleton.getInstance().getDriver();
 
-    protected final static Duration WAIT_TIMEOUT_SECONDS = Duration.ofSeconds(10);
 
     protected BasePage() {
         PageFactory.initElements(driver, this);

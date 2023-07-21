@@ -46,7 +46,7 @@ public class AdminPageTest extends BaseTest {
 
     @Test(priority = 1, description = "This test adds project form Administration")
     @Description(value = "Add new project from Administration")
-    public void addProjectFromAdminPageTest() {
+    public void checkProjectCanBeAddedFromAdminPageTest() {
         adminPageService.addProject(DEFAULT_NEW_PROJECT_NAME);
         Assert.assertTrue(projectPageService.isProjectNameDisplayed(DEFAULT_NEW_PROJECT_NAME),
                 "Project hasn't been added.");
@@ -54,16 +54,16 @@ public class AdminPageTest extends BaseTest {
 
     @Test(priority = 2, description = "This test adds example project form Administration")
     @Description(value = "Add new example project from Administration")
-    public void addExampleProjectFromAdminPageTest() {
+    public void checkExampleProjectCanBeAddedFromAdminPageTest() {
         adminPageService.addExampleProject(DEFAULT_EXAMPLE_PROJECT_NAME);
         Assert.assertTrue(projectPageService.isExampleProjectNameDisplayed(DEFAULT_EXAMPLE_PROJECT_NAME),
                 "Example Project hasn't been added.");
     }
 
 
-    @Test(priority = 3, dependsOnMethods = "addExampleProjectFromAdminPageTest", description = "This test deletes project")
+    @Test(priority = 3, dependsOnMethods = "checkExampleProjectCanBeAddedFromAdminPageTest", description = "This test deletes project")
     @Description(value = "Delete the project from Administration")
-    public void deleteProjectTest() {
+    public void CheckProjectCanBeDeletedTest() {
         adminPageService.clickDeleteProject(DEFAULT_EXAMPLE_PROJECT_NAME)
                 .confirmDeletion(DEFAULT_EXAMPLE_PROJECT_NAME)
                 .clickOkButton(DEFAULT_EXAMPLE_PROJECT_NAME);
