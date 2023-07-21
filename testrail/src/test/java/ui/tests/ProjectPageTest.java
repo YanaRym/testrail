@@ -40,7 +40,7 @@ public class ProjectPageTest extends BaseTest {
 
     @Test(priority = 1, description = "This test creates milestone")
     @Description(value = "Create milestone")
-    public void checkMilestoneCanBeCreatedTest() {
+    public void checkMilestoneCanBeAddedTest() {
         Project project = Project.builder()
                 .projectName(DEFAULT_PROJECT_NAME)
                 .milestoneName(DEFAULT_MILESTONE_NAME)
@@ -55,7 +55,7 @@ public class ProjectPageTest extends BaseTest {
 
     @Test(priority = 2, description = "This test creates new test case in a new test section")
     @Description(value = "Create new test case in a new section")
-    public void checkNewTestCaseCanBeCreatedTest() {
+    public void checkNewTestCaseCanBeAddedTest() {
         Project project = Project.builder()
                 .projectName(DEFAULT_PROJECT_NAME)
                 .sectionName(DEFAULT_TEST_CASE_SECTION_NAME)
@@ -74,7 +74,7 @@ public class ProjectPageTest extends BaseTest {
 
     @Test(priority = 3, description = "This test creates new test run")
     @Description(value = "Create new test run")
-    public void checkNewTestRunCanBeCreatedTest() {
+    public void checkNewTestRunCanBeAddedTest() {
         Project project = Project.builder()
                 .projectName(DEFAULT_PROJECT_NAME)
                 .milestoneName(DEFAULT_MILESTONE_NAME)

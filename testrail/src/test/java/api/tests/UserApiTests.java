@@ -44,7 +44,7 @@ public class UserApiTests {
 
     @Test(description = "This test gets a specific user by email")
     @Description(value = "Get user by email")
-    public void checkUsersCanBeReachedByEmailTest() {
+    public void checkStatusCodeOfGettingUserByEmailTest() {
         int statusCode = userAdapter.getUserByEmail(DEFAULT_USER_EMAIL).statusCode();
         Assert.assertEquals(statusCode, HTTP_OK,
                 "Failed to get user by email.");

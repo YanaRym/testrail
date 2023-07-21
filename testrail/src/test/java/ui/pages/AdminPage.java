@@ -22,7 +22,6 @@ public class AdminPage extends BasePage {
     @FindBy(xpath = "//a[@class='button button-left button-add'][2]")
     private WebElement addExampleProjectButton;
 
-
     @Step("Open Administration page")
     public AdminPage openAdminPage(String url) {
         log.info("Open administration");
@@ -45,7 +44,7 @@ public class AdminPage extends BasePage {
     }
 
     @Step("Tick 'Yes, delete this project' checkbox")
-    public AdminPage checkDeleteProjectCheckbox(String projectName) {
+    public AdminPage clickDeleteProjectCheckbox(String projectName) {
         log.info("Confirm deletion");
         WebElement deleteCheckbox = driver.findElement(By.xpath(String.format(deleteProjectCheckbox, projectName)));
         waitVisibilityOf(deleteCheckbox).click();

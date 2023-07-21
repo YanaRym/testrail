@@ -7,4 +7,6 @@ public class DefaultUserInfo {
     public static final String DEFAULT_EMAIL = "eyskyq@mailto.plus";
     public static final String DEFAULT_PASSWORD = "js%#zfh10A";
 
+    private DefaultUserInfo() {
+    }
 }

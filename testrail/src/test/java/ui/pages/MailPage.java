@@ -29,7 +29,6 @@ public class MailPage extends BasePage {
     @FindBy(xpath = "//a[contains(text(), 'Confirm Trial Registration')]")
     private WebElement confirmationLink;
 
-
     @Step("Open email")
     public MailPage open(String url) {
         log.info("Open mail page");

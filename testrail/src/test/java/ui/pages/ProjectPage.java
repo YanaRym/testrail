@@ -16,7 +16,6 @@ public class ProjectPage extends BasePage {
     private static final String PROJECT_NAME_XPATH = "//a[contains(text(), '%s')]";
     private static final Duration WAIT_FOR_PROJECT_TIMEOUT = Duration.ofSeconds(60);
 
-
     @FindBy(xpath = "//a[contains(text(), 'Edit')]")
     private WebElement editButton;
     @FindBy(xpath = "//input[@id='is_completed']")
@@ -33,7 +32,6 @@ public class ProjectPage extends BasePage {
     private WebElement addTestRunsButton;
     @FindBy(xpath = "//a[@id='sidebar-suites-viewall']")
     private WebElement viewAllTestCasesButton;
-
 
     @Step("Check if example project name is displayed")
     public boolean isExampleProjectNameDisplayed(String projectName) {

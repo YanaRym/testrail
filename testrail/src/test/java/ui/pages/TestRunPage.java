@@ -29,7 +29,6 @@ public class TestRunPage extends BasePage {
     @FindBy(xpath = "//button[@id='accept']")
     private WebElement addTestRunButton;
 
-
     @Step("Choose milestone")
     public TestRunPage chooseMilestone(String milestoneName) {
         log.info("Choose milestone");

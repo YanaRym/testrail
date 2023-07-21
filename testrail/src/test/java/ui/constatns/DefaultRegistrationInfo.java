@@ -9,9 +9,10 @@ public class DefaultRegistrationInfo {
     public static final String DEFAULT_COMPANY_NAME = "SkillVerify";
     public static final String DEFAULT_NUMBER_OF_USERS = "1";
 
-
     // login info for conformation of registration:
     public static final String EMAIL_USERNAME = "molstone";
     public static final String EMAIL_PASSWORD = "AokaRrt3E1I_";
 
+    private DefaultRegistrationInfo() {
+    }
 }

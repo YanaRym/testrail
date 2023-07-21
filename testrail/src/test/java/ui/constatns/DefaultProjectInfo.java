@@ -21,4 +21,6 @@ public class DefaultProjectInfo {
     public static final String DEFAULT_TEST_CASE_PRIORITY = "Critical";
     public static final String DEFAULT_TEST_RUN_DESCRIPTION = "This is an example test run description";
 
+    private DefaultProjectInfo() {
+    }
 }
