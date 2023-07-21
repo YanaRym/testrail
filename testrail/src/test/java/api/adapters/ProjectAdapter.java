@@ -8,7 +8,6 @@ public class ProjectAdapter extends BaseAdapter {
 
     private static final String GET_PROJECT_API_ENDPOINT = "api/v2/get_project/%d";
     public static final String GET_ALL_PROJECTS_API_ENDPOINT = "api/v2/get_projects";
-
     private static final String ADD_PROJECT_API_ENDPOINT = "api/v2/add_project";
 
     private static final String DELETE_PROJECT_API_ENDPOINT = "api/v2/delete_project/%d";

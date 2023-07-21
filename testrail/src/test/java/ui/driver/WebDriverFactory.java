@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-//import org.openqa.selenium.opera.OperaDriver;
+import org.openqa.selenium.safari.SafariDriver;
 
 public class WebDriverFactory {
 
@@ -24,11 +24,11 @@ public class WebDriverFactory {
                 driver = new FirefoxDriver();
                 break;
             }
-//            case "opera": {
-//                WebDriverManager.operadriver().setup();
-//                driver = new OperaDriver();
-//                break;
-//            }
+            case "safari": {
+                WebDriverManager.safaridriver().setup();
+                driver = new SafariDriver();
+                break;
+            }
             default: {
                 WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver();
