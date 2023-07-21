@@ -16,5 +16,4 @@ public class Milestone {
     @SerializedName("start_on")
     private int startOn;
 
-
 }

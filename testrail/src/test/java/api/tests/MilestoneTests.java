@@ -25,7 +25,7 @@ public class MilestoneTests {
 
     @Test(priority = 1, description = "This test adds new milestone")
     @Description(value = "Add new milestone")
-    public void addMilestoneTest() {
+    public void checkMilestoneCanBeAddedTest() {
         Milestone milestone = Milestone.builder()
                 .name("Planning phase")
                 .description("This milestone marks planning phase")
@@ -38,15 +38,15 @@ public class MilestoneTests {
 
     @Test(description = "This test gets all milestones")
     @Description(value = "Get all milestones")
-    public void getMilestonesTest() {
+    public void checkStatusCodeOfGettingMilestonesTest() {
         int statusCode = new MilestoneAdapter().getMilestones(DEFAULT_PROJECT_ID).statusCode();
         Assert.assertEquals(statusCode, HTTP_OK,
                 "Failed to get milestones.");
     }
 
-    @Test(priority = 2, description = "This test deletes milestone", dependsOnMethods = "addMilestoneTest")
+    @Test(priority = 2, description = "This test deletes milestone", dependsOnMethods = "checkMilestoneCanBeAddedTest")
     @Description("Delete milestone")
-    public void deleteMilestoneTest() {
+    public void checkMilestoneCanBeDeletedTest() {
         Milestone milestone = Milestone.builder()
                 .name("Planning phase").build();
         int id = milestoneAdapter.getMilestoneIdByName(DEFAULT_PROJECT_ID, milestone.getName());

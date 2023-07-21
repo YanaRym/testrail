@@ -11,9 +11,9 @@ import ui.service.AddProjectFieldsPageService;
 @Log4j2
 public class AdminPage extends BasePage {
 
-    private String deleteProjectButtonLink = "//a[contains(text(), '%s')]/../following-sibling::*/a/div[@class='icon-small-delete']";
-    private String deleteProjectCheckbox = "//strong[contains(text(), '%s')]/../..//input[@type='checkbox']";
-    private String okDeleteButton = "//strong[contains(text(), '%s')]/../../following-sibling::*//a[contains(text(), 'OK')]";
+    private static final String deleteProjectButtonLink = "//a[contains(text(), '%s')]/../following-sibling::*/a/div[@class='icon-small-delete']";
+    private static final String deleteProjectCheckbox = "//strong[contains(text(), '%s')]/../..//input[@type='checkbox']";
+    private static final String okDeleteButton = "//strong[contains(text(), '%s')]/../../following-sibling::*//a[contains(text(), 'OK')]";
 
     @FindBy(xpath = "//a[@id='navigation-sub-projects']")
     private WebElement projectNavigationButton;

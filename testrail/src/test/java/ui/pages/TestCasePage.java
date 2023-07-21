@@ -15,8 +15,8 @@ import java.time.Duration;
 @Log4j2
 public class TestCasePage extends BasePage {
 
-    private static String OBJECT_XPATH = "//li[contains(text(), '%s')]";
-    private static Duration WAIT_DISAPPEAR_SECONDS = Duration.ofSeconds(20);
+    private static final String OBJECT_XPATH = "//li[contains(text(), '%s')]";
+    private static final Duration WAIT_DISAPPEAR_SECONDS = Duration.ofSeconds(20);
 
     @FindBy(xpath = "//a[contains(text(), 'Add Section')]")
     private WebElement addFirstSectionButton;

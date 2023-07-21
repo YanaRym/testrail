@@ -19,4 +19,3 @@ public class User {
     private String country;
     private String numberOfUsers;
 }
-

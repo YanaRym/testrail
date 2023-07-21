@@ -35,4 +35,3 @@ public class AddProjectFieldsPage extends BasePage {
         return waitVisibilityOf(noNameErrorMessage).isDisplayed();
     }
 }
-
