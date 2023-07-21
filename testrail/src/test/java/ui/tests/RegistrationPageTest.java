@@ -24,7 +24,7 @@ public class RegistrationPageTest extends BaseTest {
 
     @Test(description = "This test signs user in")
     @Description(value = "Create new user account")
-    public void checkNewAccountCanBeCreated() {
+    public void checkNewAccountCanBeCreatedTest() {
         User user = User.builder()
                 .firstName(DEFAULT_FIRST_NAME)
                 .lastName(DEFAULT_LAST_NAME)

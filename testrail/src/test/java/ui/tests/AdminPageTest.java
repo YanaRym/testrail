@@ -63,7 +63,7 @@ public class AdminPageTest extends BaseTest {
 
     @Test(priority = 3, dependsOnMethods = "checkExampleProjectCanBeAddedFromAdminPageTest", description = "This test deletes project")
     @Description(value = "Delete the project from Administration")
-    public void CheckProjectCanBeDeletedTest() {
+    public void checkProjectCanBeDeletedTest() {
         adminPageService.clickDeleteProject(DEFAULT_EXAMPLE_PROJECT_NAME)
                 .confirmDeletion(DEFAULT_EXAMPLE_PROJECT_NAME)
                 .clickOkButton(DEFAULT_EXAMPLE_PROJECT_NAME);
@@ -71,4 +71,3 @@ public class AdminPageTest extends BaseTest {
                 "Project hasn't been deleted.");
     }
 }
-
