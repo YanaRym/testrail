@@ -2,6 +2,7 @@ package ui.pages;
 
 import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -135,6 +136,8 @@ public class RegistrationPage extends BasePage {
     @Step("Click 'Create account'")
     public void clickCreateAccountButton() {
         log.info("Create new account");
+        WebDriverWait wait = new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='blockUI blockOverlay']")));
         waitElementToBeClickable(successButton).click();
     }
 

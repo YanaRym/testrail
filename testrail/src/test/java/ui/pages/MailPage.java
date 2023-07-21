@@ -2,6 +2,7 @@ package ui.pages;
 
 import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WindowType;
 import org.openqa.selenium.support.FindBy;
@@ -89,7 +90,8 @@ public class MailPage extends BasePage {
     @Step("Click confirmation link")
     public MailPage clickConfirm() {
         log.info("Confirm email address");
-        waitElementToBeClickable(confirmationLink).click();
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        js.executeScript("arguments[0].click();", confirmationLink);
         return this;
     }
 }

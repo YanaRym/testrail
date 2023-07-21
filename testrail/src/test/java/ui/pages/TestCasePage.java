@@ -3,6 +3,7 @@ package ui.pages;
 import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -72,7 +73,9 @@ public class TestCasePage extends BasePage {
     @Step("Confirm addition of section")
     public TestCasePage confirmNewSection() {
         log.info("Confirm section addition");
-        waitElementToBeClickable(submitSectionButton).click();
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        js.executeScript("arguments[0].click();", submitSectionButton);
+       // waitVisibilityOf(submitSectionButton).click();
         return this;
     }
 
