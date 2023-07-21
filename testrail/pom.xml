@@ -126,7 +126,7 @@
                     <systemProperties>
                         <property>
                             <name>allure.results.directory</name>
-                            <value>C:\ProgramData\Jenkins\.jenkins\workspace\Test UI new\testrail\allure-results</value>
+                            <value>C:\ProgramData\Jenkins\.jenkins\workspace\TestRail diploma\testrail\allure-results</value>
                         </property>
                     </systemProperties>
                 </configuration>
