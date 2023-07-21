@@ -9,10 +9,11 @@ import static ui.constatns.PageUrls.LOGIN_PAGE;
 
 public class LoginPageService {
 
+    private final LoginPage loginPage = new LoginPage();
+
 
     @Step("Login with 'Keep me logged in' button ticked")
     public void loginWithKeepMeLogged(User user) {
-        LoginPage loginPage = new LoginPage();
         loginPage.openLoginPage(LOGIN_PAGE)
                 .fillInEmailField(user.getEmail())
                 .fillInPasswordField(user.getPassword())
@@ -21,10 +22,9 @@ public class LoginPageService {
 
     @Step("Login with 'Keep me logged in' button unticked")
     public void loginWithoutKeepMeLogged(User user) {
-        LoginPage loginPage = new LoginPage();
         loginPage.openLoginPage(LOGIN_PAGE);
         if (!loginPage.isKeepMeLoggedInChecked()) {
-            loginPage.keepMeLoggedInClick();
+            loginPage.clickKeepMeLoggedIn();
         }
         loginPage.fillInEmailField(user.getEmail())
                 .fillInPasswordField(user.getPassword())
@@ -39,19 +39,16 @@ public class LoginPageService {
 
     @Step("Check if no email message is displayed")
     public boolean isNoEmailErrorDisplayed() {
-        LoginPage loginPage = new LoginPage();
         return loginPage.isEmailErrorDisplayed();
     }
 
     @Step("Check if no password message is displayed")
     public boolean isNoPasswordErrorDisplayed() {
-        LoginPage loginPage = new LoginPage();
         return loginPage.isPasswordErrorDisplayed();
     }
 
     @Step("Check if no credentials message is displayed")
     public boolean isNoCredentialsErrorDisplayed() {
-        LoginPage loginPage = new LoginPage();
         return loginPage.isWrongCredentialsErrorDisplayed();
     }
 }

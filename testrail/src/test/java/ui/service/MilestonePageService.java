@@ -14,5 +14,4 @@ public class MilestonePageService {
                 .fillInMilestoneDescriptionField(project.getMilestoneDescription())
                 .clickAddMilestoneButton();
     }
-
 }

@@ -19,7 +19,6 @@ public class DashboardPage extends BasePage {
     @FindBy(xpath = "//a[@id='navigation-admin']")
     private WebElement adminButton;
 
-
     @Step("Open Dashboard Page")
     public void openDashboardPage(String url) {
         log.info("Open dashboard");
