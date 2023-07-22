@@ -38,7 +38,7 @@ public class DashboardPageTest extends BaseTest {
 
     @Test(description = "This test adds example project form Dashboard")
     @Description(value = "Add new project from Dashboard")
-    public void addProjectFromDashboardTest() {
+    public void checkProjectCanBeAddedFromDashboardTest() {
         dashboardPageService.open()
                 .addProject(DEFAULT_NEW_PROJECT_NAME);
         Assert.assertTrue(addProjectPageService.isProjectCreated(DEFAULT_NEW_PROJECT_NAME),
@@ -47,7 +47,7 @@ public class DashboardPageTest extends BaseTest {
 
     @Test(description = "This test adds new project without name form Dashboard")
     @Description(value = "Add new project without name")
-    public void addProjectFromDashboardWithoutNameTest() {
+    public void checkProjectCanBeAddedFromDashboardWithoutNameTest() {
         dashboardPageService.open()
                 .addProject("");
         Assert.assertTrue(addProjectPageService.isErrorMessageDisplayed(),
