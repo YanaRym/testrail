@@ -51,7 +51,8 @@ public class RegistrationPage extends BasePage {
     private WebElement nextButton;
     @FindBy(xpath = "//button[contains(text(), 'Done')]")
     private WebElement doneButton;
-
+    @FindBy(xpath = "//div[@class='blockUI blockOverlay']")
+    private WebElement blocker;
 
     @Step("Open registration page")
     public RegistrationPage openRegistrationPage() {
@@ -137,7 +138,7 @@ public class RegistrationPage extends BasePage {
     public void clickCreateAccountButton() {
         log.info("Create new account");
         WebDriverWait wait = new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS);
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='blockUI blockOverlay']")));
+        wait.until(ExpectedConditions.invisibilityOf(blocker));
         waitElementToBeClickable(successButton).click();
     }
 
@@ -178,5 +179,4 @@ public class RegistrationPage extends BasePage {
         log.info("Done");
         waitElementToBeClickable(doneButton).click();
     }
-
 }

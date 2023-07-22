@@ -31,7 +31,7 @@ public class AdminPageService {
     @Step("Confirm deletion")
     public AdminPageService confirmDeletion(String projectName) {
         AdminPage adminPage = new AdminPage();
-        adminPage.checkDeleteProjectCheckbox(projectName);
+        adminPage.clickDeleteProjectCheckbox(projectName);
         return this;
     }
 

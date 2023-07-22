@@ -9,8 +9,8 @@ import org.openqa.selenium.support.FindBy;
 @Log4j2
 public class TestRunPage extends BasePage {
 
-    private static String MILESTONE_XPATH = "//li[contains(text(), '%s')]";
-    private static String TEST_CASE_XPATH = "//span[contains(text(), '%s')]/../../..//input[@type='checkbox']";
+    private static final String MILESTONE_XPATH = "//li[contains(text(), '%s')]";
+    private static final String TEST_CASE_XPATH = "//span[contains(text(), '%s')]/../../..//input[@type='checkbox']";
 
     @FindBy(xpath = "//div[@id='milestone_id_chzn']")
     private WebElement milestoneListField;
@@ -28,7 +28,6 @@ public class TestRunPage extends BasePage {
     private WebElement okButton;
     @FindBy(xpath = "//button[@id='accept']")
     private WebElement addTestRunButton;
-
 
     @Step("Choose milestone")
     public TestRunPage chooseMilestone(String milestoneName) {

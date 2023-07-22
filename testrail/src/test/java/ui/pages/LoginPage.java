@@ -23,7 +23,6 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//div[contains (text(), \"incorrect\")]")
     private WebElement wrongCredentialsErrorMessage;
 
-
     @Step("Open login page")
     public LoginPage openLoginPage(String url) {
         log.info("Open login page");

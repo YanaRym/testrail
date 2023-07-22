@@ -10,7 +10,7 @@ import ui.service.AddProjectFieldsPageService;
 @Log4j2
 public class DashboardPage extends BasePage {
 
-    private String projectLink = "//div[@id='content_container']//a[contains(text(),'%s')]";
+    private static final String projectLink = "//div[@id='content_container']//a[contains(text(),'%s')]";
 
     @FindBy(xpath = "//span[@class='navigation-username']")
     private WebElement username;
@@ -18,7 +18,6 @@ public class DashboardPage extends BasePage {
     private WebElement addProjectButton;
     @FindBy(xpath = "//a[@id='navigation-admin']")
     private WebElement adminButton;
-
 
     @Step("Open Dashboard Page")
     public void openDashboardPage(String url) {

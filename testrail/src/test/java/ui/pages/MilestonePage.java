@@ -45,5 +45,4 @@ public class MilestonePage extends BasePage {
         log.info("Click add milestone");
         waitElementToBeClickable(addMilestoneButton).click();
     }
-
 }

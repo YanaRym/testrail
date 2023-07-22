@@ -11,12 +11,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-
 @Log4j2
 public class TestCasePage extends BasePage {
 
-    private static String OBJECT_XPATH = "//li[contains(text(), '%s')]";
-    private static Duration WAIT_DISAPPEAR_SECONDS = Duration.ofSeconds(20);
+    private static final String OBJECT_XPATH = "//li[contains(text(), '%s')]";
+    private static final Duration WAIT_DISAPPEAR_SECONDS = Duration.ofSeconds(20);
 
     @FindBy(xpath = "//a[contains(text(), 'Add Section')]")
     private WebElement addFirstSectionButton;
@@ -42,12 +41,14 @@ public class TestCasePage extends BasePage {
     private WebElement priorityList;
     @FindBy(xpath = "//button[@id='accept']")
     private WebElement submitTestCaseButton;
+    @FindBy (xpath = "//div[@class='blockUI blockOverlay']")
+    private WebElement blocker;
 
     @Step("Click 'Add Section' button")
     public TestCasePage clickAddSectionButton() {
         log.info("Add section");
         WebDriverWait wait = new WebDriverWait(driver, WAIT_DISAPPEAR_SECONDS);
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='blockUI blockOverlay']")));
+        wait.until(ExpectedConditions.invisibilityOf(blocker));
         if (!addFirstSectionButton.isDisplayed()) {
             addSectionButton.click();
         } else {
@@ -75,7 +76,6 @@ public class TestCasePage extends BasePage {
         log.info("Confirm section addition");
         JavascriptExecutor js = (JavascriptExecutor)driver;
         js.executeScript("arguments[0].click();", submitSectionButton);
-       // waitVisibilityOf(submitSectionButton).click();
         return this;
     }
 
@@ -97,7 +97,7 @@ public class TestCasePage extends BasePage {
     public TestCasePage chooseSection(String sectionName) {
         log.info("Choose section");
         WebDriverWait wait = new WebDriverWait(driver, WAIT_DISAPPEAR_SECONDS);
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@class='blockUI blockOverlay']")));
+        wait.until(ExpectedConditions.invisibilityOf(blocker));
         waitElementToBeClickable(sectionList).click();
         waitVisibilityOf(driver.findElement(By.xpath(String.format(OBJECT_XPATH, sectionName)))).click();
         return this;

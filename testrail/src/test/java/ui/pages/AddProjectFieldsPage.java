@@ -15,7 +15,6 @@ public class AddProjectFieldsPage extends BasePage {
     @FindBy(xpath = "//div[@class='message message-error']")
     private WebElement noNameErrorMessage;
 
-
     @Step("Fill in project name field")
     public AddProjectFieldsPage fillInProjectName(String projectName) {
         log.info("Fill in project name field");
@@ -35,4 +34,3 @@ public class AddProjectFieldsPage extends BasePage {
         return waitVisibilityOf(noNameErrorMessage).isDisplayed();
     }
 }
-

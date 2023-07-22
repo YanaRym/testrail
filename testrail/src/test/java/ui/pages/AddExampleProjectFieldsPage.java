@@ -5,16 +5,13 @@ import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-
 @Log4j2
 public class AddExampleProjectFieldsPage extends BasePage {
-
 
     @FindBy(xpath = "//input[@id='addProjectName']")
     private WebElement exampleProjectNameInputField;
     @FindBy(xpath = "//button[contains(text(), 'Add Example Project')]")
     private WebElement addExampleProjectConfirmationButton;
-
 
     @Step("Fill in example project name field")
     public AddExampleProjectFieldsPage inputExampleProjectName(String projectName) {
