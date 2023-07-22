@@ -24,7 +24,7 @@
         <javafaker.version>1.0.2</javafaker.version>
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
         <allure-maven.version>2.10.0</allure-maven.version>
-        <suiteXmlFile>src/test/resources/ui_smoke.xml</suiteXmlFile>
+        <suiteXmlFile>src/test/resources/smoke.xml</suiteXmlFile>
         <aspectj.version>1.9.19</aspectj.version>
     </properties>
     <dependencies>
@@ -103,14 +103,6 @@
 
     <build>
         <plugins>
-            <!-- <plugin>
-                 <groupId>org.apache.maven.plugins</groupId>
-                 <artifactId>maven-compiler-plugin</artifactId>
-                 <configuration>
-                     <source>log4j2-test.yaml.8</source>
-                     <target>log4j2-test.yaml.8</target>
-                 </configuration>
-             </plugin> -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
