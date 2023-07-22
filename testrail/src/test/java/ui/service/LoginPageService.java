@@ -11,7 +11,6 @@ public class LoginPageService {
 
     private final LoginPage loginPage = new LoginPage();
 
-
     @Step("Login with 'Keep me logged in' button ticked")
     public void loginWithKeepMeLogged(User user) {
         loginPage.openLoginPage(LOGIN_PAGE)

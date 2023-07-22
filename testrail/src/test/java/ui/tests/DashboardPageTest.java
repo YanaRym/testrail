@@ -47,7 +47,7 @@ public class DashboardPageTest extends BaseTest {
 
     @Test(description = "This test adds new project without name form Dashboard")
     @Description(value = "Add new project without name")
-    public void checkProjectCantBeAddedFromDashboardWithoutNameTest() {
+    public void checkProjectCanBeAddedFromDashboardWithoutNameTest() {
         dashboardPageService.open()
                 .addProject("");
         Assert.assertTrue(addProjectPageService.isErrorMessageDisplayed(),

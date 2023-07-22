@@ -9,7 +9,6 @@ public class DashboardPageService {
 
     private final DashboardPage dashboardPage = new DashboardPage();
 
-
     @Step("Open Dashboard page")
     public DashboardPageService open() {
         dashboardPage.openDashboardPage(DASHBOARD_PAGE);

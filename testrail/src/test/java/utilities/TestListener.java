@@ -23,14 +23,14 @@ public class TestListener implements ITestListener {
     @Override
     public void onTestStart(ITestResult iTestResult) {
         log.info(String.format(
-                "======================================== STARTING TEST %s ========================================",
+                "===== STARTING TEST %s =====",
                 iTestResult.getName()));
     }
 
     @Override
     public void onTestSuccess(ITestResult iTestResult) {
         log.info(String.format(
-                "======================================== FINISHED TEST %s Duration: %ss ========================================",
+                "===== FINISHED TEST %s Duration: %ss =====",
                 iTestResult.getName(),
                 getExecutionTime(iTestResult)));
     }
@@ -38,16 +38,16 @@ public class TestListener implements ITestListener {
     @Override
     public void onTestFailure(ITestResult iTestResult) {
         log.info(String.format(
-                "======================================== FAILED TEST %s Duration: %ss ========================================",
+                "===== FAILED TEST %s Duration: %ss =====",
                 iTestResult.getName(),
                 getExecutionTime(iTestResult)));
-        takeScreenshot(iTestResult); //УБРАТЬ RESULT
+        takeScreenshot(iTestResult);
     }
 
     @Override
     public void onTestSkipped(ITestResult iTestResult) {
         log.info(String.format(
-                "======================================== SKIPPING TEST %s ========================================",
+                "===== SKIPPING TEST %s =====",
                 iTestResult.getName()));
     }
 

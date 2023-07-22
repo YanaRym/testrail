@@ -24,7 +24,6 @@ public class AdminPageTest extends BaseTest {
     private AdminPageService adminPageService;
     private ProjectPageService projectPageService;
 
-
     @BeforeClass()
     public void setUp() {
         loginPageService = new LoginPageService();

@@ -8,14 +8,11 @@ import static api.constants.ApiStringConstants.*;
 
 public class BaseAdapter {
 
-
     private static final String AUTHORIZATION = "Authorization";
     private static final String AUTHORIZATION_VALUE = "Basic ZXlza3lxQG1haWx0by5wbHVzOmpzJSN6ZmgxMEE=";
     private static final String BASE_URL = "https://janefost.testrail.io/index.php?/";
 
-
     protected Gson converter = new Gson();
-
 
     protected Response get(String url) {
         return
@@ -28,7 +25,6 @@ public class BaseAdapter {
                         .log().all()
                         .extract().response();
     }
-
 
     protected Response post(String url, String body) {
         return
@@ -54,5 +50,4 @@ public class BaseAdapter {
                         .log().all()
                         .extract().response();
     }
-
 }

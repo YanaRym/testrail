@@ -11,7 +11,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-
 @Log4j2
 public class TestCasePage extends BasePage {
 
@@ -42,7 +41,7 @@ public class TestCasePage extends BasePage {
     private WebElement priorityList;
     @FindBy(xpath = "//button[@id='accept']")
     private WebElement submitTestCaseButton;
-    @FindBy(xpath = "//div[@class='blockUI blockOverlay']")
+    @FindBy (xpath = "//div[@class='blockUI blockOverlay']")
     private WebElement blocker;
 
     @Step("Click 'Add Section' button")
