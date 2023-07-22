@@ -11,12 +11,10 @@ public class UserAdapter extends BaseAdapter {
     private static final String GET_USER_BY_EMAIL_API_ENDPOINT = "api/v2/get_user_by_email&email=%s";
     private static final String ADD_USER_API_ENDPOINT = "api/v2/add_user";
 
-
     public Response getUsers() {
         log.info("Get all users");
         return get(GET_USERS_API_ENDPOINT);
     }
-
 
     public Response getUserByEmail(String email) {
         log.info("Get user by email");
