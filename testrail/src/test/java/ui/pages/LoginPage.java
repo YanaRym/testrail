@@ -26,6 +26,7 @@ public class LoginPage extends BasePage {
     @Step("Open login page")
     public LoginPage openLoginPage(String url) {
         log.info("Open login page");
+        driver.manage().deleteAllCookies();
         driver.get(url);
         return this;
     }

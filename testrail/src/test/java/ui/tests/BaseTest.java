@@ -9,12 +9,12 @@ import utilities.TestListener;
 public class BaseTest {
     protected WebDriver driver;
 
-    @BeforeMethod
+    @BeforeClass
     public void startBrowser() {
         driver = DriverSingleton.getInstance().getDriver();
     }
 
-        @AfterMethod(alwaysRun = true)
+    @AfterClass(alwaysRun = true)
     public void stopBrowser() {
         DriverSingleton.getInstance().closeDriver();
     }

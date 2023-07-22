@@ -4,7 +4,6 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Story;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ui.models.User;
 import ui.service.*;
@@ -25,10 +24,6 @@ public class DashboardPageTest extends BaseTest {
         loginPageService = new LoginPageService();
         dashboardPageService = new DashboardPageService();
         addProjectPageService = new AddProjectFieldsPageService();
-    }
-
-    @BeforeMethod()
-    public void login() {
         User user = User.builder()
                 .email(DEFAULT_EMAIL)
                 .password(DEFAULT_PASSWORD)

@@ -74,7 +74,7 @@ public class TestCasePage extends BasePage {
     @Step("Confirm addition of section")
     public TestCasePage confirmNewSection() {
         log.info("Confirm section addition");
-        JavascriptExecutor js = (JavascriptExecutor) driver;
+        JavascriptExecutor js = (JavascriptExecutor)driver;
         js.executeScript("arguments[0].click();", submitSectionButton);
         return this;
     }

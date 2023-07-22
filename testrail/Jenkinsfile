@@ -10,7 +10,7 @@ pipeline {
         cron('0 8 * * *')
     }
     parameters {
-        gitParameter branchFilter: 'origin/(.*)', defaultValue: 'tests', name: 'BRANCH', type: 'PT_BRANCH'
+        gitParameter branchFilter: 'origin/(.*)', defaultValue: 'tests_v2', name: 'BRANCH', type: 'PT_BRANCH'
         booleanParam(defaultValue: true, description: 'Headless mode', name: 'HEADLESS')
         string(name: 'DEPLOY_ENV', defaultValue: 'staging', description: '')
     }

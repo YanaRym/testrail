@@ -30,22 +30,18 @@ public class AdminPageTest extends BaseTest {
         dashboardPageService = new DashboardPageService();
         adminPageService = new AdminPageService();
         projectPageService = new ProjectPageService();
-    }
-
-    @BeforeMethod()
-    public void login() {
         User user = User.builder()
                 .email(DEFAULT_EMAIL)
                 .password(DEFAULT_PASSWORD)
                 .build();
         loginPageService.loginWithKeepMeLogged(user);
-        dashboardPageService.goToAdminPage()
-                .goToProjectDirectory();
     }
 
     @Test(priority = 1, description = "This test adds project form Administration")
     @Description(value = "Add new project from Administration")
     public void checkProjectCanBeAddedFromAdminPageTest() {
+        dashboardPageService.goToAdminPage()
+                .goToProjectDirectory();
         adminPageService.addProject(DEFAULT_NEW_PROJECT_NAME);
         Assert.assertTrue(projectPageService.isProjectNameDisplayed(DEFAULT_NEW_PROJECT_NAME),
                 "Project hasn't been added.");
@@ -54,6 +50,8 @@ public class AdminPageTest extends BaseTest {
     @Test(priority = 2, description = "This test adds example project form Administration")
     @Description(value = "Add new example project from Administration")
     public void checkExampleProjectCanBeAddedFromAdminPageTest() {
+        dashboardPageService.goToAdminPage()
+                .goToProjectDirectory();
         adminPageService.addExampleProject(DEFAULT_EXAMPLE_PROJECT_NAME);
         Assert.assertTrue(projectPageService.isExampleProjectNameDisplayed(DEFAULT_EXAMPLE_PROJECT_NAME),
                 "Example Project hasn't been added.");
@@ -63,6 +61,8 @@ public class AdminPageTest extends BaseTest {
     @Test(priority = 3, dependsOnMethods = "checkExampleProjectCanBeAddedFromAdminPageTest", description = "This test deletes project")
     @Description(value = "Delete the project from Administration")
     public void checkProjectCanBeDeletedTest() {
+        dashboardPageService.goToAdminPage()
+                .goToProjectDirectory();
         adminPageService.clickDeleteProject(DEFAULT_EXAMPLE_PROJECT_NAME)
                 .confirmDeletion(DEFAULT_EXAMPLE_PROJECT_NAME)
                 .clickOkButton(DEFAULT_EXAMPLE_PROJECT_NAME);

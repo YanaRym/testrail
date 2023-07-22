@@ -4,7 +4,6 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Story;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ui.models.Project;
 import ui.models.User;
@@ -27,10 +26,6 @@ public class ProjectPageTest extends BaseTest {
         dashboardPageService = new DashboardPageService();
         projectPageService = new ProjectPageService();
         loginPageService = new LoginPageService();
-    }
-
-    @BeforeMethod()
-    public void logIn() {
         User user = User.builder()
                 .email(DEFAULT_EMAIL)
                 .password(DEFAULT_PASSWORD)
@@ -47,7 +42,8 @@ public class ProjectPageTest extends BaseTest {
                 .milestoneReference(DEFAULT_MILESTONE_REFERENCE)
                 .milestoneDescription(DEFAULT_MILESTONE_DESCRIPTION)
                 .build();
-        dashboardPageService.goToProjectInfo(project.getProjectName())
+        dashboardPageService.open()
+                .goToProjectInfo(project.getProjectName())
                 .addMilestone()
                 .fillInMilestoneInfo(project);
         Assert.assertTrue(projectPageService.isSuccess(), "Creation of milestone failed.");
@@ -65,7 +61,8 @@ public class ProjectPageTest extends BaseTest {
                 .testCaseType(DEFAULT_TEST_CASE_TYPE)
                 .testCasePriority(DEFAULT_TEST_CASE_PRIORITY)
                 .build();
-        dashboardPageService.goToProjectInfo(project.getProjectName())
+        dashboardPageService.open()
+                .goToProjectInfo(project.getProjectName())
                 .viewAllTestCases()
                 .addSection(project)
                 .addTestCase(project);
@@ -81,7 +78,8 @@ public class ProjectPageTest extends BaseTest {
                 .testRunDescription(DEFAULT_TEST_RUN_DESCRIPTION)
                 .testCaseTitle(DEFAULT_TEST_CASE_TITLE)
                 .build();
-        dashboardPageService.goToProjectInfo(project.getProjectName())
+        dashboardPageService.open()
+                .goToProjectInfo(project.getProjectName())
                 .clickAddTestRun()
                 .addTTestRun(project);
         Assert.assertTrue(projectPageService.isSuccess());
@@ -91,7 +89,8 @@ public class ProjectPageTest extends BaseTest {
     @Test(priority = 4, description = "This test completes project")
     @Description(value = "Mark project as complete")
     public void checkProjectCanBeMarkedAsCompleteTest() {
-        dashboardPageService.goToProjectInfo(DEFAULT_PROJECT_NAME)
+        dashboardPageService.open()
+                .goToProjectInfo(DEFAULT_PROJECT_NAME)
                 .editProject();
         Assert.assertTrue(projectPageService.isSuccess(),
                 "Project completion failed.");
