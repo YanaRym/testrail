@@ -14,4 +14,5 @@ public class Project {
     private String announcement;
     @SerializedName("show_announcement")
     private boolean showAnnouncement;
+
 }

@@ -3,7 +3,6 @@ package api.adapters;
 import api.models.Project;
 import io.restassured.response.Response;
 
-
 public class ProjectAdapter extends BaseAdapter {
 
     private static final String GET_PROJECT_API_ENDPOINT = "api/v2/get_project/%d";

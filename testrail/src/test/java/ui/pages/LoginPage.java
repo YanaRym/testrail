@@ -57,7 +57,7 @@ public class LoginPage extends BasePage {
     }
 
     @Step("Tick 'Keep me logged in' checkbox")
-    public void keepMeLoggedInClick() {
+    public void clickKeepMeLoggedIn() {
         log.info("Click keep me logged");
         waitElementToBeClickable(keepMeLoggedInCheckmark).click();
     }
