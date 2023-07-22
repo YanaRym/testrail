@@ -23,7 +23,7 @@ public class LoginPageService {
     public void loginWithoutKeepMeLogged(User user) {
         loginPage.openLoginPage(LOGIN_PAGE);
         if (!loginPage.isKeepMeLoggedInChecked()) {
-            loginPage.keepMeLoggedInClick();
+            loginPage.clickKeepMeLoggedIn();
         }
         loginPage.fillInEmailField(user.getEmail())
                 .fillInPasswordField(user.getPassword())
