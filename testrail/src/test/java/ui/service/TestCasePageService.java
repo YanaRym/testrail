@@ -6,9 +6,10 @@ import ui.pages.TestCasePage;
 
 public class TestCasePageService {
 
+    private final TestCasePage testCasePage = new TestCasePage();
+
     @Step("Add section")
     public TestCasePageService addSection(Project project) {
-        TestCasePage testCasePage = new TestCasePage();
         testCasePage.clickAddSectionButton()
                 .fillInSectionNameField(project.getSectionName())
                 .fillInSectionDescriptionField(project.getSectionDescription())
@@ -18,7 +19,6 @@ public class TestCasePageService {
 
     @Step("Add new test case")
     public ProjectPageService addTestCase(Project project) {
-        TestCasePage testCasePage = new TestCasePage();
         testCasePage.clickAddTestCaseButton()
                 .chooseSection(project.getSectionName())
                 .chooseTemplate(project.getTestCaseTemplate())

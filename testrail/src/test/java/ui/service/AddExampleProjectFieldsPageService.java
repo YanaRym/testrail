@@ -5,7 +5,6 @@ import ui.pages.AddExampleProjectFieldsPage;
 
 public class AddExampleProjectFieldsPageService {
 
-
     @Step("Add example project")
     public void addExampleProject(String projectName) {
         AddExampleProjectFieldsPage addExampleProjectFieldsPage = new AddExampleProjectFieldsPage();
